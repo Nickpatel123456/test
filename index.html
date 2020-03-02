@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>sLquiz Reports</title>
+  <base href="/">  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="sl.ico">
+  <script>
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        localStorage.setItem('config', this.responseText);
+      }
+    };
+    xhttp.open("GET", "assets/navigation.json", true);
+    xhttp.send();
+  </script>
+<link rel="stylesheet" href="styles.fc987e888ac2ddeb66ce.css"></head>
+<body>
+<app-root>
+  <!--Start app display bubble-->
+  <div class="container">
+    <div class="row">
+      <div id="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="loadings text-center"><h5 class="spinner-message">schoolsLENS Solutions Pvt. Ltd.</h5></div>
+      </div>
+    </div>
+  </div>
+  <!--End app display bubble-->
+</app-root>
+<script src="runtime-es2015.7c6b0cd0573a60d035df.js" type="module"></script><script src="runtime-es5.7c6b0cd0573a60d035df.js" nomodule defer></script><script src="polyfills-es5.16a3ef45bbaf3a52d7d5.js" nomodule defer></script><script src="polyfills-es2015.9eaff473addde2bb95e2.js" type="module"></script><script src="scripts.f6885b3a4a595c4241c8.js" defer></script><script src="main-es2015.967780fd9a57bd1ba931.js" type="module"></script><script src="main-es5.967780fd9a57bd1ba931.js" nomodule defer></script></body>
+</html>

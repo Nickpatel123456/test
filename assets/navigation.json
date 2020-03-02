@@ -1,0 +1,94 @@
+{
+  "welcome": "UNMF1",
+  "dashboard": "Dashboard",
+  "yoy": "YOY Improvement",
+  "program": "Program",
+  "cluster": "Zone",
+  "school": "School",
+  "classroom": "Classroom",
+  "student": "Students",
+  "base_routing": "dashboard",
+  "groupid": 2,
+  "navItems": [
+    {
+      "name": "Dashboard",
+      "url": "/dashboard",
+      "icon": "fa fa-table fa-lg"
+    },
+    {
+      "name": "YoY Improvement",
+      "url": "/yoy",
+      "icon": "fa fa-table fa-lg"
+    },
+    {
+      "name": "Program",
+      "url": "/program",
+      "icon": "fa fa-group fa-lg"
+    },
+    {
+      "name": "Cluster",
+      "url": "/cluster",
+      "icon": "fa fa-group fa-lg"
+    },
+    {
+      "name": "School",
+      "url": "/school",
+      "icon": "fa fa-university fa-lg"
+    },
+    {
+      "name": "Classroom",
+      "url": "/classroom",
+      "icon": "fa fa-tachometer fa-lg"
+    },
+    {
+      "name": "Student",
+      "url": "/student",
+      "icon": "fa fa-child fa-lg"
+    }
+  ],
+  "showing_tabs": {
+    "dashboard": {
+      "tab1": "show",
+      "tab2": "show",
+      "tab3": "show",
+      "tab4": "show"
+    },
+    "yoy": {
+      "tab1": "show",
+      "tab2": "show",
+      "tab3": "show",
+      "tab4": "show",
+      "tab5": "show",
+      "tab6": "show",
+      "tab7": "show"
+    },
+    "program": {
+      "tab1": "show",
+      "tab2": "show",
+      "tab3": "show"
+    },
+    "cluster": {
+      "tab1": "show",
+      "tab2": "show",
+      "tab3": "show"
+    },
+    "school": {
+      "tab1": "show",
+      "tab2": "show",
+      "tab3": "show",
+      "tab4": "show",
+      "tab5": "show"
+    },
+    "classroom": {
+      "tab1": "show",
+      "tab2": "show",
+      "tab3": "show",
+      "tab4": "show",
+      "tab5": "show",
+      "tab6": "show"
+    },
+    "student": {
+      "tab1": "show"
+    }
+  }
+}
