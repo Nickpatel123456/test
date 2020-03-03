@@ -1,4 +1,4 @@
-var baselinkforfiles = "test/";
+var baselinkforfiles = "/";
 // var baselinkforfiles = "/unmf/sledstudio/dashboard/app/";
 
 var iplinkurl = "http://122.170.7.116:";
