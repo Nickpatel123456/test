@@ -1,0 +1,42 @@
+<br>
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Selection Box</div>
+				<div class="panel-body">			
+					<label>From Date</label>
+					<p class="input-group">
+						<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate3" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+						
+					<label>To Date</label>
+					<p class="input-group">
+						<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate3" is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats"/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+						
+					<button type="button" class="btn btn-primary" style="margin-top:4px" ng-click="loadslearn3report()" ng-if="fromDate3 != undefined && toDate3 != undefined">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="col-md-9" ng-if="showgraphPanel3">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h1 class="panel-title">Total Standard Usage</h1>
+				</div>
+				<div class="panel-body">
+					<canvas id="bar" height="110" class="chart chart-bar" chart-data="data3" chart-labels="lables3" chart-options="options3" chart-dataset-override="chartcolor3" ></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

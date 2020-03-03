@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.unit_content {
+    margin-top: 10px;
+    background-color: rgba(196, 113, 29, 0.5);
+    border-radius: 10px;
+    width: 98%;
+}
+
+.span {
+    display: -webkit-inline-box;
+}
+
+span {
+    display: table-cell;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+
+.divwidth {
+    width: 34%;
+}
+
+input[type=radio] {
+    transform: scale(1.5, 1.5);
+    -moz-transform: scale(1.5, 1.5);
+    -ms-transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    -o-transform: scale(1.5, 1.5);
+    margin: -10px 0 0;
+}
+
+.optionDiv {
+    margin: auto;
+}
+
+.radioButton {
+    color: green;
+    height: 19px;
+    width: 34px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.questionText {
+    background-color: lightblue;
+    font-size: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid black;
+}
+
+.optionImage {
+    background-color: gray;
+   /*  max-width: 19vw;
+     margin-left: 5px;
+    margin-top: 10px;
+    padding: 1px;
+    width: 160px;*/
+}

@@ -1,0 +1,137 @@
+<nav-bar></nav-bar>
+<style>
+    /* Style the list */
+    ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background: none;
+    }
+
+    /* Display list items side by side */
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 15px;
+    }
+
+    /* Add a slash symbol (/) before/behind each list item */
+    ul.breadcrumb li + li:before {
+        padding: 8px;
+        color: white;
+        content: "/\00a0";
+    }
+
+    /* Add a color to all links inside the list */
+    ul.breadcrumb li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Add a color on mouse-over */
+    ul.breadcrumb li a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .row.display-flex {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row.display-flex > .columns {
+        display: flex;
+        /* flex-direction: column;
+         margin-top: auto;*/
+    }
+
+    .panel {
+        height: 100%;
+        background-color: whitesmoke;
+    }
+
+    .complete {
+        padding: 5px;
+        background: bisque;
+        border-radius: 5px;
+        color: black;
+        margin-bottom: 5px;
+    }
+
+    .text-height {
+        line-height: 1.4;
+        margin: 5px;
+    }
+
+    .mtb {
+        margin-top: -20px;
+        margin-bottom: 25px;
+    }
+
+    .backGrd {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+        margin-top: -9px;
+    }
+
+    #bg {
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+    }
+
+    #bg img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        min-width: 50%;
+        min-height: 50%;
+    }
+
+    .btn-group-lg > .btn, .btn-lg {
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+        padding: 5px 5px 0px;
+    }
+</style>
+<div class="col-md-12" ng-if="!showActivity" id="bg">
+    <center><img ng-src="{{imgUrl + 'images/monkey.gif'}}" class="img-responsive" style="width: 40%"/></center>
+</div>
+
+<div class="container-fluid backGrd" ng-if="showActivity">
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-3 pull-left">
+            <button class="btn btn-danger" ng-click="goBacksLearnConceptlist()"><span
+                    class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-7 rowCenter">
+            <ul class="breadcrumb">
+                <li><a>{{slearnsubjectname}}</a></li>
+                <li><a>{{selectedfloor}}</a></li>
+                <li><a>{{conceptroomname}}</a></li>
+                <li><a>{{conceptname}}</a></li>
+            </ul>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-2">
+            <h6 class="btn btn-info pull-right" style="margin: 0px;">{{per_complete+concept_complt_percant}}% </h6>
+        </div>
+    </div>
+    <div class="row display-flex" style="margin-top: 2px;">
+        <div class="col-xs-6 col-md-4 columns mtb" ng-repeat="activity in activity_list | orderBy:'order'">
+            <button ng-click="loadSelectedActivity(activity.activity_id, activity.activity_name, activity.is_anchor)"
+                    ng-class="{'btn-block btn-lg btn-warning active': activity.is_anchor == true && activity.is_current_activity =='No' && activity.status_of_activity == 'Active','btn-block btn-lg btn-primary active': activity.is_anchor == false && activity.is_current_activity =='No' && activity.status_of_activity == 'Active','btn-block btn-lg  btn-warnng active': activity.is_current_activity =='Yes','btn-block btn-lg disabled': activity.status_of_activity == 'InActive'}"
+                    ng-disabled="activity.status_of_activity == 'InActive'" style="border: 1px solid black;">
+                <p class="complete text-center" style="float: left; margin-right: 8px;">
+                    Order:- {{activity.order}} <br> Act.:- {{activity.activity_id}}
+                </p>
+                <h4 class="text-height text-left">{{activity.activity_name}}</h4>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<div id="StudentBlock"> 
+	<div class="row">
+		<div class="col-xs-12 col-md-7">
+			<fieldset class="col-md-12">    	
+				<legend>Personal Information</legend>		
+				
+				<div class="row">
+					<div class="col-xs-4 col-md-4">
+						<label for=" " class="control-label">નામ</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.StudentFirstName" placeholder="નામ" required>
+						</div>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for=" " class="control-label">પિતાનું નામ</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.StudentMiddleName" placeholder="પિતાનું નામ" required>
+						</div>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for=" " class="control-label">અટક</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.StudentLastName" placeholder="અટક" required>
+						</div>
+					</div>
+				</div>
+				
+				<br>
+				<div class="row">
+					<div class="col-xs-4 col-md-4">
+						<label for="selectgender" class="control-label">જાતિ</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon">જાતિ</i></span>
+						<select class="form-control" id="selectgender" ng-options="x.text for x in gender track by x.value" ng-model="AddUser.StudentGender" ng-init="gender=[{'value':'M','text':'પુરૂષ'},{'value':'F','text':'સ્ત્રી'}]" required>
+						<option value="" selected disabled>જાતિ પસંદ કરો</option>
+						</select>
+						</div>
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for=" " class="control-label">જન્મ તારીખ:</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						<input type="date" min="1900-01-01" max="2100-12-31" ng-model="AddUser.StudentDateOfBirth" class="form-control" id="date_of_birth" required/>
+						</div>	
+					</div>
+					
+					<div class="col-xs-4 col-md-4">
+						<label for=" " class="control-label">ફોન નં. :</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+						<input type="number" class="form-control" ng-model="AddUser.StudentPhone" pattern="[0-9]{10}" title="Enter 10 digit number" placeholder="9725411077">
+						</div>	
+					</div>
+				</div>
+				
+				<br>
+				<div class="row">
+					<div class="col-xs-6 col-md-6">
+						<label for=" " class="control-label">સરનામુ :</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon">સરનામુ</i></span>
+						<input type="text" class="form-control" ng-model="AddUser.StudentAddress" placeholder="town / city / state">
+						</div>
+					</div>
+					
+					<div class="col-xs-6 col-md-6">
+						<label for="date_of_birth" class="control-label">ઇ મેઇલ  :</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+						<input type="email" class="form-control" ng-minlength="3" ng-model="AddUser.StudentEmail" placeholder="abc@gmail.com">
+						</div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+		
+		<div class="col-xs-12 col-md-5">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<fieldset class="col-md-12">    	
+					<legend>Education Information</legend>	
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon">ધોરણ </i></span>
+							<select class="form-control" id="selectstandard" ng-options="std for std in standarddata" ng-model="AddUser.StudentStandard" ng-change="getdivisiondata()" required>
+							<option value="" selected disabled>ધોરણ પસંદ કરો</option>
+							</select>		
+							</div>	
+						</div>
+					</div>
+					
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon">વિભાગ </i></span>
+							<select class="form-control" id="selectdivision" ng-options="div.divname.guj for div in divisiondataarray" ng-model="AddUser.StudentDivision"  required> -->
+							<option value="" selected disabled>વિભાગ પસંદ કરો</option>
+							</select>	
+							</div>	
+						</div>
+					</div>
+					
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon">રોલ નં. </i></span>
+							<input type="number" class="form-control" min="1" max="100" ng-model="AddUser.StudentRollNumber" placeholder="રોલ નંબર" title="Enter only 1 to 100 number" required>
+							</div>	
+						</div>
+					</div>
+				</fieldset>
+				</div>
+			</div>
+			
+			<br>
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<fieldset class="col-md-12">    	
+					<legend>Account Information</legend>
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+						<label for="date_of_birth" class="control-label">યુઝરનેમ</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.StudentUserName" placeholder="યુઝરનેમ" required>
+						</div>
+						</div>
+
+						<div class="col-xs-12 col-md-6">
+						<label for="date_of_birth" class="control-label">પાસવર્ડ</label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+						<input type="text" class="form-control" ng-minlength="6" ng-model="AddUser.StudentPassword" placeholder="પાસવર્ડ" required>
+						</div>
+						</div>
+					</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

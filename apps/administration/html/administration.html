@@ -1,0 +1,17 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <uib-tabset>
+                <uib-tab index="0" heading="યુઝર્સ ઉમેરવા">
+                    <addusers-form></addusers-form>
+                </uib-tab>
+                <uib-tab index="1" heading="યુઝર્સ જુઓ">
+                    <viewuser-form></viewuser-form>
+                </uib-tab>
+                <uib-tab index="2" heading="sLquiz Exam Panel" ng-click="gotosLquiz()"
+                         ng-if="showSlquizPanel"></uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label>From Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate8"
+                               is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open1()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>To Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate8"
+                               is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open2()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>Standard</label>
+                    <select class="form-control" ng-model="std_analysis8" ng-options="std for std in standardanalysis8"
+                            ng-change="getsubjectdata8(); sub_analysis8 = undefined; div_analysis8 = undefined"></select>
+
+                    <label style="margin-top:6px">Subject</label>
+                    <select class="form-control" ng-model="sub_analysis8"
+                            ng-options="s.sub_id as s.sub_name.gj for s in subjectdata8"
+                            ng-change="getDivisionData8(); div_analysis8 = undefined"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="div_analysis8"
+                            ng-options="y.divid as y.divname.guj for y in divanalysis8"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadslate8report()"
+                            ng-if="fromDate8 != undefined && toDate8 != undefined && std_analysis8 != undefined && sub_analysis8 != undefined && div_analysis8 != undefined">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showtable8">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Teacher Wise Usage</h1></div>
+                <div class="panel-body">
+                    <h4 ng-if="teachersLateChapterUsageData.length == 0">{{errorMsg}}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ng-if="teachersLateChapterUsageData.length != 0">
+                            <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Teacher Name</th>
+                                <th>Chapter Usage</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="chapterusage in teachersLateChapterUsageData">
+                                <td>{{$index+1}}</td>
+                                <td>{{chapterusage.name}}</td>
+                                <td>
+                                    <table class="table table-striped table-bordered datatable nowrap"
+                                           ng-if="chapterusage.sem1.length != 0">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="2">Sem1 Chapter Details</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Chapter Name</th>
+                                            <th>Usage In HH:MM:SS</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="sem1 in chapterusage.sem1">
+                                            <td>{{sem1.chaptername}}</td>
+                                            <td>{{sem1.duration | formatTimer}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-striped table-bordered datatable nowrap"
+                                           ng-if="chapterusage.sem2.length != 0">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="2">Sem2 Chapter Details</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Chapter Name</th>
+                                            <th>Usage In HH:MM:SS</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="sem2 in chapterusage.sem2">
+                                            <td>{{sem2.chaptername}}</td>
+                                            <td>{{sem2.duration | formatTimer}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

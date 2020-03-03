@@ -1,0 +1,30 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-xs-3">
+            <button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+                <span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+
+        <div class="col-md-6 col-xs-8">
+            <center><h4>Aggreagate sLearn Usage Reports</h4></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Product Usage" ng-click="today1()">
+                    <slearnanalysis1-report></slearnanalysis1-report>
+                </uib-tab>
+                <uib-tab index="1" heading="Subject Usage" ng-click="today2()">
+                    <slearnanalysis2-report></slearnanalysis2-report>
+                </uib-tab>
+                <uib-tab index="2" heading="Standard Usage" ng-click="today3()">
+                    <slearnanalysis3-report></slearnanalysis3-report>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

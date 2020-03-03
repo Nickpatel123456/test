@@ -1,0 +1,73 @@
+<br>
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+			<div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+			<div class="panel-body">
+				<label>From Date</label>
+				<p class="input-group">
+					<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate2" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+			</p>
+						
+			<label>To Date</label>
+				<p class="input-group">
+					<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate2" is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats"/>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+						
+				<label style="margin-top:6px">Select Subject</label>
+				<select class="form-control" ng-model="sub_analysis2" ng-options="s.sub_id as s.sub_name.gj for s in subjectdata2" ng-change="getStandardData2(); std_analysis2 = undefined; div_analysis2 = undefined"></select>
+						
+				<label style="margin-top:6px">Standard</label>
+				<select class="form-control" ng-model="std_analysis2" ng-options="std for std in standardanalysis2" ng-change="getDivisionData2(); div_analysis2 = undefined"></select>
+						
+				<label style="margin-top:6px">Division</label>
+				<select class="form-control" ng-model="div_analysis2" ng-options="y.divid as y.divname.guj for y in divanalysis2"></select>
+						
+				<button type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadAcademic2Report()" ng-if="toDate2 != undefined && toDate2 != undefined && sub_analysis2 != undefined && std_analysis2 != undefined && div_analysis2 != undefined">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="col-md-9" ng-if="showAcademic2Report">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><h1 class="panel-title">Activity Attempt analysis</h1></div>
+				<div class="panel-body table-responsive">
+					<h4 ng-if="errorMsg2"><center>{{errorMsg}}</center></h4>
+					<table class="table table-bordered" ng-if="showtable2">
+						<thead>
+							<tr class="danger">
+								<td>Student Name</td>
+								<td>Floor No.</td>
+								<td>Conceptroom Name</td>
+								<td>Concept Name</td>
+								<td>Activity Name</td>
+								
+								<td ng-show="activity_arrow == true" style="cursor:pointer"  ng-click="orderByField='attemptActivity'; reverseSort = !reverseSort; activity_arrow = false;">Attempts on Activity &#9650;</td>
+								<td ng-show="activity_arrow == false" style="cursor:pointer"  ng-click="orderByField='attemptActivity'; reverseSort = !reverseSort; activity_arrow = true;">Attempts on Activity &#9660;</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="actvity in studentAttemptActivityTableData | orderBy:orderByField:reverseSort" class="success">
+								<td>{{actvity.studentName}}</td>
+								<td>{{actvity.floorNo}}</td>
+								<td>{{actvity.conceptroomName}}</td>
+								<td>{{actvity.conceptName}}</td>
+								<td>{{actvity.activityName}}</td>
+								<td>{{actvity.attemptActivity}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

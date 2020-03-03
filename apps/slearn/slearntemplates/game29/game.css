@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.unit_content {
+    margin-top: 10px;
+    background-color: rgba(44, 53, 57, 0.8);
+    border-radius: 10px;
+    width: 90%;
+}
+
+.header {
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.middleline {
+    border-left: 5px solid orange;
+}
+
+.matchthefollowingbackground {
+    background-color: #F0E68C;
+}
+
+.textboxmtf {
+    width: 4em;
+    display: inline;
+}
+
+.top {
+    margin: 6px;
+}
+
+.textofmtf {
+    padding-top: 1.8%;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid black;
+    margin: 1em 0;
+    padding: 1;
+}
+
+.endline {
+    border-top: 1px solid #ddd;
+    margin-top: -15px;
+}
+
+td {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+

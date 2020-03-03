@@ -1,0 +1,55 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label>Standard</label>
+                    <select class="form-control" ng-model="standard_data8" ng-options="std for std in standarddata8"
+                            ng-change="getDivisionData8()"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="division_data8"
+                            ng-options="y.divid as y.divname.guj for y in divisiondata8"></select>
+
+                    <button style="margin-top:6px" type="button" class="btn btn-primary" style="margin-top:6px"
+                            ng-click="loadslearn8report()"
+                            ng-if="standard_data8 != undefined && division_data8 != undefined">Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showslearn8table || showerrromsg8">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Inactive Students List</h1></div>
+                <div class="panel-body">
+                    <h4 ng-if="showerrromsg8">{{errorMsg}}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ui-jq="dataTable"
+                               ui-options="tableOption8" ng-if="showslearn8table" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Roll No.</th>
+                                <th>Student Name</th>
+                                <th>Student ID</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="student in inActivestddata8 track by $index">
+                                <td>{{student.rollno}}</td>
+                                <td>{{student.fullname}}</td>
+                                <td>{{student.studentid}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

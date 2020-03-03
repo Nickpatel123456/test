@@ -1,0 +1,43 @@
+{
+	"subject": {
+		"1": {"name":{"gj":" વિજ્ઞાન અને ટેક્નોલોજી","en":"Science","slearn_folder":"sci"}},
+		"2": {"name":{"gj":"ગણિત","en":"Maths","slearn_folder":"mat"}},
+		"3": {"name":{"gj":"સામાજિક વિજ્ઞાન","en":"SS","slearn_folder":"ss"}},
+		"4": {"name":{"gj":"ગુજરાતી","en":"Gujarati","slearn_folder":"guj"}},
+		"5": {"name":{"gj":"હિન્દી","en":"Hindi","slearn_folder":""}},
+		"6": {"name":{"gj":"અંગ્રેજી","en":"English","slearn_folder":"eng"}},
+		"7": {"name":{"gj":"સંસ્કૃત","en":"Sanskrit","slearn_folder":""}},
+		"9": {"name":{"gj":"સૌની આસપાસ","en":"Sau Ni Aaspaas","slearn_folder":""}}
+	},
+	"division":{
+		"1": {"name":{"en":"A","guj":"અ"}},
+		"2": {"name":{"en":"B","guj":"બ"}},
+		"3": {"name":{"en":"C","guj":"ક"}},
+		"4": {"name":{"en":"D","guj":"ડ"}}
+	},
+	"standard":{
+		"1": {"name":{"en":"1","guj":"૧"}},
+		"2": {"name":{"en":"2","guj":"૨"}},
+		"3": {"name":{"en":"3","guj":"૩"}},
+		"4": {"name":{"en":"4","guj":"૪"}},
+		"5": {"name":{"en":"5","guj":"૫"}},
+		"6": {"name":{"en":"6","guj":"૬"}},
+		"7": {"name":{"en":"7","guj":"૭"}},
+		"8": {"name":{"en":"8","guj":"૮"}}
+	},
+	"teachertype":{
+		"1": {"name":{"en":"Upper","guj":"પ્રાથમિક"}},
+		"2": {"name":{"en":"Lower","guj":"પૂર્વ પ્રાથમિક"}}
+	},
+	"usergreeting":" તમારું સ્વાગત છે. ",
+	"selectProductName":"તમે પસંદ કરેલ છે. ",
+	"changeProductBtnName":"Change Product",
+	"backBtnName":" પાછા જાવ ",
+	"floorLevel":"તમે આ ફ્લોર પર છો. :-",
+	"floor":" ",
+	"conceptroom":" >> ",
+	"concept":" >> ",
+	"completed":" પૂર્ણ  :- ",
+	"grapherrormessage":"No data avaliable for this combination",
+	"slquianstime":1
+}

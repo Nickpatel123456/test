@@ -1,0 +1,60 @@
+<div id="startingmodal"></div>
+
+<style>
+    .span{
+        padding: 10px;
+        font-size: 15px;
+        padding-bottom: 5px;
+        display: inline-block;
+        margin-bottom: 3px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    .timer {
+        background: mintcream;
+        width: 35px;
+        border-radius: 50%;
+        text-align: center;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+        float: none;
+    }
+</style>
+
+<div class="container-fluid mt" ng-if="showstartexam">
+   <!-- <div class="alert alert-info div" ng-if="timerBtn" style="width:40px;">
+        <strong id="countdowntimer">{{slquizanstime}}</strong>
+    </div>
+    <div class="alert alert-success div">
+        <strong>નામ : {{studentName}} ({{userID}})</strong>
+    </div>
+    <div class="alert alert-warning div">
+        <strong>ધોરણ: {{standardId}}</strong>
+    </div>
+    <div class="alert alert-danger div">
+        <strong>વિષય: {{subjectName}}</strong>
+    </div>
+    <div class="alert btn-danger div">
+        <strong>Skip: {{countSkipQuestion}}</strong>
+    </div>-->
+
+    <span ng-if="timerBtn" class="span timer"><strong id="countdowntimer">{{slquizanstime}}</strong></span>
+    <span class="span" style="background: beige"> <strong>નામ : {{studentName}} ({{userID}})</strong></span>
+    <span class="span" style="background: antiquewhite"><strong>ધોરણ: {{standardId}}</strong></span>
+    <span class="span" style="background: aliceblue"><strong>વિષય: {{subjectName}}</strong></span>
+    <span class="span" style="background: orangered"><strong>છોડેલા પ્રશ્નો : {{countSkipQuestion}}</strong></span>
+</div>
+
+<div class="container-fluid questionpaperbackground marginClass">
+    <div class="row">
+        <!--
+        <div class="col-xs-6 col-md-4 backgroundtimer">
+        <div> બાકી સમય : <span id="time">00:00</span> મિનિટ</div>
+        </div>
+        -->
+    </div>
+    <!-- <hr/> -->
+    <div id="loadQuestion" style="margin-top:-20px;">
+    </div>
+</div>

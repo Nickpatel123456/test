@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #d5d8dc;
+}
+
+.sudokucell {
+    border: 1px solid black;
+    padding: 1%;
+    text-align: center;
+    background-color: #79FAB5;
+}
+
+.sudokurow {
+    margin-left: 10%;
+}

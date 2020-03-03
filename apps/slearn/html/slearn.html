@@ -1,0 +1,129 @@
+<nav-bar></nav-bar>
+<style>
+    .font {
+        /*font-size: 2vh;*/
+        color: black;
+        text-align: center;
+        background: white;
+        padding: 3px;
+        padding-bottom: 0px;
+        margin-top: -11px;
+        border-radius: 5px;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pointMain {
+        background: cadetblue;
+        margin: auto;
+        border-radius: 5px;
+        padding: 30px;
+    }
+
+    .points {
+        background: aliceblue;
+        border-radius: 50%;
+        width: 10%;
+        padding: 13px;
+        margin: 5px;
+    }
+
+    h5 {
+        font-size: 2vw;
+        color: black;
+    }
+</style>
+<div class="container-fluid" style="padding: 15px; margin-top: -9px;">
+    <div class="row">
+        <div class="col-xs-5 pull-left">
+            <button type="submit" class="btn btn-danger" ng-click="goBacksLearnSubject()">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                {{backBtnName}}
+            </button>
+        </div>
+    </div>
+    <div class="row row-flex centerdiv">
+        <!--<div class="col-xs-1 col-md-1" ng-click="listeningCorner()" style="cursor: pointer;" ng-if="showListeningcorner">
+        <img ng-src="{{ropeimagepath}}" style="width:100%"/>
+        <img ng-src="{{ropeimagepath}}" style="width:100%"/>
+        <div class="listeningBox">Listening Corner</div>
+        </div> -->
+
+        <div class="col-xs-2 col-md-1 shake commonfloorcss" style="margin-top: 5px;" ng-repeat="floor in floorsToDisplay">
+            <img ng-src="{{ropeimagepath}}" style="width:100%"/>
+            <center>
+                <p ng-if="floor == currentFloor" class="font centered">{{floorpercentage1}}%</p>
+                <p ng-if="floor < currentFloor" class="font centered">100%</p>
+                <p ng-if="floor > currentFloor" class="font centered">0%</p>
+            </center>
+            <!-- <img ng-src="{{ropeimagepath}}" style="width:100%"/> -->
+            <div class="floorbackground" ng-click="loadConceptRoomsForFloor(floor)">
+                <center>
+                    <img ng-if="floor == currentFloor" ng-src="{{baseImagePath+'apps/slearn/images/floor'+floor+'.png'}}"
+                         style="width:100%"/>
+                    <img ng-if="floor < currentFloor" ng-src="{{baseImagePath+'apps/slearn/images/floor'+floor+'.png'}}"
+                         style="width:100%"/>
+                    <img ng-if="floor > currentFloor" ng-src="{{baseImagePath+'apps/slearn/images/lock.png'}}"
+                         style="width:100%"/>
+                </center>
+            </div>
+        </div>
+    </div>
+	<br/>
+    <div class="row">
+        <div class="col-xs-12" ng-if="labelforenglish" style="margin-bottom: -10px;">
+            <h4 class="instuction">વિદ્યાર્થી મિત્રો અંગ્રેજી વિષયની કોઈ પણ પ્રવૃત્તિ કરવા માટે તમારા અંગ્રેજી વિષયના
+                પાઠ્યપુસ્તક અને તેમાં આપેલ પરિશિષ્ટનો જરૂર જણાય તો ઉપયોગ કરવો.</h4>
+        </div>
+    </div>
+
+    <div class="row row-flex centerdiv pointMain">
+        <div class="col-xs-12 col-md-12 text-center">
+            <h4 style="color:white"> તમારો ખજાનો અમારી પાસે સલામત છે. </h4>
+        </div>
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor1points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor1count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor2points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor2count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor3points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor3count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor4points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor4count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor5points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor5count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor6points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor6count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor7points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor7count}}</h5>
+        </div>
+
+        <div class="col-md-1 col-xs-2 points">
+            <img src="{{floor8points}}" style="width:100%" class="img-responsive img-rounded"/>
+            <h5 class="centered">{{floor8count}}</h5>
+        </div>
+    </div>
+</div>

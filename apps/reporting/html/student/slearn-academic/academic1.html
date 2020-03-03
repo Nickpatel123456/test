@@ -1,0 +1,104 @@
+<br>
+<div class="row">
+    <div class="col-md-11">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">School Floor Level analysis</h1></div>
+                <div class="panel-body">
+                    <div class="row">
+
+                        <!-- <div class="col-md-3"> -->
+                        <!-- <label>From Date</label> -->
+                        <!-- <p class="input-group"> -->
+                        <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate1" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" /> -->
+                        <!-- <span class="input-group-btn"> -->
+                        <!-- <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button> -->
+                        <!-- </span> -->
+                        <!-- </p> -->
+                        <!-- </div> -->
+
+                        <!-- <div class="col-md-3"> -->
+                        <!-- <label>To Date</label> -->
+                        <!-- <p class="input-group"> -->
+                        <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate1" is-open="popup2.opened" datepicker-options="dateOptions"close-text="Close" alt-input-formats="altInputFormats"/> -->
+                        <!-- <span class="input-group-btn"> -->
+                        <!-- <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button> -->
+                        <!-- </span> -->
+                        <!-- </p> -->
+                        <!-- </div> -->
+
+                        <div class="col-md-3">
+                            <label>Subject</label>
+                            <select class="form-control" ng-model="sub_analysis1"
+                                    ng-options="s.sub_id as s.sub_name.gj for s in subjectdata1"
+                                    ng-change="getStandardData1(); std_analysis1 = undefined; div_analysis1 = undefined"></select>
+                        </div>
+
+                        <div class="col-md-2">
+                            <br>
+                            <button type="button" class="btn btn-primary" style="margin-top:4px"
+                                    ng-click="loadAcademic1Report()" ng-if="sub_analysis1 != undefined ">Submit
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row" ng-if="showAcademic1Report" style="margin-top:10px">
+                        <div class="col-md-12">
+                            <h4 ng-if="errorMsg1">
+                                <center>{{errorMsg}}</center>
+                            </h4>
+                        </div>
+
+                        <div class="col-md-6" ng-if="showtable1">
+                            <canvas id="bar" class="chart chart-bar" style="margin-top:10px" chart-data="data1"
+                                    chart-labels="labels1" chart-options="options1" chart-series="series1"
+                                    chart-dataset-override="chartcolor1" height="150px"></canvas>
+                        </div>
+
+                        <div class="col-md-6" ng-if="showtable1">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default" ng-repeat="floor in floorwisestudentdata">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapse{{$index+1}}" onclick="topFunction()">Click Here To Get
+                                                Details Of Floor {{floor.floorid}} Student</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse{{$index+1}}" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered datatable nowrap"
+                                                       ui-jq="dataTable"
+                                                       ui-options="tableOption1">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Student Name</th>
+                                                        <th>Standard</th>
+                                                        <th>Division</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="student in floor.studentdata">
+                                                        <td>{{student.data.user_detail.first_name + " " +
+                                                            student.data.user_detail.last_name }}
+                                                        </td>
+                                                        <td>{{student.data.student_detail.standard_id}}</td>
+                                                        <td>{{student.divisonname.name.guj}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

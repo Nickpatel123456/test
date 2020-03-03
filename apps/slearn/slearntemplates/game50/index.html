@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Game 50</title>
+
+    <link href="/apps/slearn/slearntemplates/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/apps/slearn/slearntemplates/game50/game.css" rel="stylesheet">
+</head>
+<body onselectstart="return false;">
+<div class="container unit_content">
+    <div class="row">
+        <div class="col-lg-12 mt">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody id="imageDisplay"></tbody>
+                </table>
+            </div>
+
+            <audio id="audioEngine">
+                <source src="/apps/slearn/slearntemplates/libs/mp3/applause.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+    <audio controls id="myAudio" style="display:none"></audio>
+</div>
+
+<!-- Launch Modal -->
+<div class="modal fade" id="launchmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-size:20px;">શરૂઆતની સૂચના</h4>
+            </div>
+            <div class="modal-body">
+                <p id="unittitle" style="font-size:18px;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onClick="startGame()" style="font-size:18px;">રમત શરુ
+                    કરો
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of launch modal -->
+
+<!-- Success Modal -->
+<div class="modal fade" id="successmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-size:18px;">બહુ સરસ </h4>
+            </div>
+            <div class="modal-body text-center" id="loadingNextActivity">
+                <h3 style="font-size:18px;"> તમે આ પ્રવૃત્તિ પૂરી કરી છે. તમે આગળના સ્તર પર જઈ શકો છો. </h3>
+                <button type="button" class="btn btn-primary" onClick="proceedToNextLevel()" style="font-size:18px;">
+                    આગળનું સ્તર
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of success modal -->
+
+
+<!-- Remedial Modal -->
+<div class="modal fade" id="courouselmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">પુનરાવર્તન કરો
+                    <button type="button" id="remedial2button" style="margin-left:5px"
+                            class="btn btn-success pull-right" onClick="loadNextRemedial()">વધુ શીખો
+                    </button>
+                    <button type="button" id="playagainbtn" class="btn btn-warining pull-right" style="margin-left:5px"
+                            onClick="playAgain()" data-dismiss="modal">ફરીથી રમવું
+                    </button>
+                </h4>
+            </div>
+            <div class="modal-body" id="corouselbody" style="height:75vh"></div>
+        </div>
+    </div>
+</div>
+<!-- End of Remedial Modal -->
+<script src="/apps/slearn/slearntemplates/libs/jquery-2.2.4.min.js"></script>
+<script src="/apps/slearn/slearntemplates/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="/apps/slearn/slearntemplates/game50/game.js"></script>
+<script src="/apps/slearn/slearntemplates/libs/logic-common-anchor.js"></script>
+</body>
+</html>

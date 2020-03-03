@@ -1,0 +1,144 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label style="margin-top:6px">Select Subject</label>
+                    <select class="form-control" ng-model="sub_analysis5"
+                            ng-options="s.sub_id as s.sub_name.gj for s in subjectdata5"
+                            ng-change="getStandardData5(); std_analysis5 = undefined; div_analysis5 = undefined"></select>
+
+                    <label style="margin-top:6px">Standard</label>
+                    <select class="form-control" ng-model="std_analysis5" ng-options="std for std in standardanalysis5"
+                            ng-change="getDivisionData5(); div_analysis5 = undefined"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="div_analysis5"
+                            ng-options="y.divid as y.divname.guj for y in divanalysis6"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px"
+                            ng-click="loadAcademic5Report()"
+                            ng-if="sub_analysis5 != undefined && sub_analysis5 != undefined && div_analysis5 != undefined">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showAcademic5Report">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Student Wise Concept analysis</h1></div>
+                <div class="panel-body table-responsive">
+                    <h4 class="text-center" class="text-center" ng-if="errorMsg5">{{errorMsg}}</h4>
+                    <h4 class="text-center" ng-if="showtable5">NOTE :- Concept category qualify : strong= 80% or more
+                        than 80%, weak= 60% or less than 60%, average= between 60%-80%</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ui-jq="dataTable"
+                               ui-options="tableOption5" ng-if="showtable5">
+                            <thead>
+                            <tr>
+                                <th>User Id</th>
+                                <th>Student Name</th>
+                                <th>Floor No.</th>
+                                <th>Conceptroom Name</th>
+                                <th>Concept Name</th>
+                                <th>Percentage(%)</th>
+                                <th>Status</th>
+                                <th>Attempt HH:MM:SS</th>
+                                <th>Total Attempts</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="status in conceptStats">
+                                <td>{{status.userid}}</td>
+                                <td>{{status.stundetname}}</td>
+                                <td>{{status.floorid}}</td>
+                                <td>{{status.conceptroomname}}</td>
+                                <td style="cursor:pointer;color:blue"
+                                    ng-click="getactivitydetails(status.userid,status.stundetname,status.floorwisedata)">
+                                    {{status.conceptname}}
+                                </td>
+                                <td>{{status.percentage}} %</td>
+                                <td>{{status.statusdata}}</td>
+                                <td>{{status.attempt_time}}</td>
+                                <td>{{status.attempts}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="studentactivitydetialsmodal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Student Attempt Activity Details</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="danger">
+                        <td>User Id</td>
+                        <td>User Name</td>
+                        <td>Floor Id</td>
+                        <td>Conceptroom Name</td>
+                        <td>Concept Name</td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="success">
+                        <td>{{userid}}</td>
+                        <td>{{username}}</td>
+                        <td>{{floorid}}</td>
+                        <td>{{conceptroom_name}}</td>
+                        <td>{{concept_name}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <center ng-if="showloading1"><img ng-src="{{imgurl}}" class="img-responsive" width="60%"></center>
+
+                <h4 class="text-center" style="color:red" ng-if="errorMsg1">{{errorMsg}}</h4>
+
+                <table class="table table-bordered" ng-if="showtable1">
+                    <thead>
+                    <tr class="danger">
+                        <td>Activity Id</td>
+                        <td>Activity Name</td>
+                        <td>Activity Attempt(HH:MM:SS)</td>
+                        <td>Activity Attempt</td>
+                        <td>Activity Status</td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="success" ng-repeat="data in studentActivityData">
+                        <td>{{data.activity_id}}</td>
+                        <td>{{data.activity_name}}</td>
+                        <td>{{data.attempt_time}}</td>
+                        <td>{{data.attempts}}</td>
+                        <td>{{data.status}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

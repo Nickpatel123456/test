@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #d5d8dc;
+}
+
+.matchthefollowingbackground {
+    background-color: #ECDDF5;
+}
+
+span {
+    display: table-cell;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.pb-5 {
+    padding-bottom: 3px;
+}
+
+#gametitle {
+    background: beige;
+    padding: 10px;
+    display: -webkit-inline-box;
+    margin-bottom: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.span {
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.header {
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+table tr > td {
+    /*display: inline-flex;*/
+    border-top: 1px solid black;
+}
+
+.table > tbody > tr > td {
+    border-top: 1px solid black;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+input, select {
+    text-align: center;
+    background-color: #FCF5D8;
+}
+
+.font {
+    font-size: 20px;
+}
+
+.mt-30 {
+    margin-top: 30%;
+}
+
+.borderLeft {
+    border-left: 1px solid black;
+}
+
+.borderRight {
+    border-right: 1px solid black;
+}
+
+.center {
+    vertical-align: -webkit-baseline-middle  !important;
+}

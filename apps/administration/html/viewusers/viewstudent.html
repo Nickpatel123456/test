@@ -1,0 +1,88 @@
+<style>
+    .logBtn {
+        cursor: pointer;
+        color: blue;
+        background: antiquewhite;
+        border-radius: 5px;
+        padding: 5px 5px 0px;
+        border: 1px solid black;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+<div id="TeacherBlock">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h1 class="panel-title">Student Details</h1></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-3 col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon">ધોરણ </i></span>
+                        <select class="form-control" id="selectstandard" ng-options="std for std in standarddata"
+                                ng-model="ViewUser.StudentStandard" ng-change="getdivisiondata()" required>
+                            <option value="" selected disabled>ધોરણ પસંદ કરો</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" style="margin-top: 5px;">
+                        <span class="input-group-addon"><i class="glyphicon">વિભાગ </i></span>
+                        <select class="form-control" id="selectdivision"
+                                ng-options="div.divname.guj for div in divisiondataarray"
+                                ng-model="ViewUser.StudentDivision" required> -->
+                            <option value="" selected disabled>વિભાગ પસંદ કરો</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-block" style="margin-top: 5px;"
+                            ng-click="studenttableDetail()"
+                            ng-if="ViewUser.StudentStandard != undefined && ViewUser.StudentDivision != undefined">
+                        Submit
+                    </button>
+                </div>
+
+                <div class="col-xs-9 col-md-9" ng-if="tableviewstudent">
+                    <table class="table table-responsive table-bordered">
+                        <thead>
+                        <tr class="info">
+                            <td>Sr. No.</td>
+                            <td>User Id</td>
+                            <td>User Tag</td>
+                            <td>Student Name</td>
+                            <!-- <td>જુઓ</td>
+                             <td>ડિલીટ</td>-->
+                            <td>Action</td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-class="[value.rowColor]" class="active" ng-repeat="(key,value) in studentdetail">
+                            <td>{{$index + 1}}</td>
+                            <td>{{value.data.user_detail.user_id }}</td>
+                            <td>{{value.data.user_detail.user_tag }}</td>
+                            <td>{{value.data.user_detail.first_name}} {{value.data.user_detail.middle_name}}
+                                {{value.data.user_detail.last_name}}
+                            </td>
+                            <!-- <td>
+                                 <button type="button" class="btn btn-info">Edit</button>
+                             </td>
+                             <td>
+                                 <button type="button" class="btn btn-danger">Delete</button>
+                             </td>-->
+                            <td>
+                                <div ng-if="value.rowColor === 'success'">
+                                    <a class="logBtn" ng-click="forcefullyLout(key)">લોગ આઉટ</a>
+                                </div>
+                                <div ng-if="value.rowColor === 'danger'" style="color: red; cursor: none;">
+                                    InActive
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

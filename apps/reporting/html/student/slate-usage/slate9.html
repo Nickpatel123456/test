@@ -1,0 +1,122 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label>Standard</label>
+                    <select class="form-control" ng-model="standard_data9" ng-options="std for std in standarddata9"
+                            ng-change="getDivisionData9(); getSubjectData_Std(); chapterDetails()"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="division_data9"
+                            ng-options="y.divid as y.divname.guj for y in divisiondata9"></select>
+
+                    <label style="margin-top:6px">Subject</label>
+                    <select class="form-control" ng-model="subject_data9"
+                            ng-options="sub.id as sub.name.gj for sub in subject_details_data"
+                            ng-change="semester(); chapterDetails()"></select>
+
+                    <label style="margin-top:6px">Semester</label>
+                    <select class="form-control" ng-model="semester_id"
+                            ng-options="sem.id as sem.name for sem in semester_data"
+                            ng-change="chapterDetails()"></select>
+
+                    <label style="margin-top:6px">Chapter</label>
+                    <select class="form-control" ng-model="chapter_id"
+                            ng-options="chap.chapter_number as chap.name.guj for chap in store_chapter_data"
+                            ng-change="chapterDetails()"></select>
+
+                    <button style="margin-top:6px" type="button" class="btn btn-primary" style="margin-top:6px"
+                            ng-click="loadStudentChaptMarks()"
+                            ng-if="standard_data9 != undefined && division_data9 != undefined && subject_data9 != undefined && semester_id != undefined && chapter_id != undefined">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <h3 class="text-center" style="color:red" ng-if="!showChapTable && student_kbc_data.length == 0">No data
+            found.</h3>
+        <div class="panel-group" ng-if="showChapTable">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Student Wise Marks</h1></div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr class="danger text-center">
+                                <td>Student Name</td>
+                                <td>Total Ques.</td>
+                                <td>Attmp. Ques.</td>
+                                <td>Right Ans.</td>
+                                <td>Marks Obtained</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="marks in student_kbc_data" class="success text-center">
+                                <td>{{marks.student_name}}</td>
+                                <td>{{marks.total_ques}}</td>
+                                <td>{{marks.attmp_ques}}</td>
+                                <td>{{marks.right_ans}}</td>
+                                <td>{{marks.marks_obtained}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Selection Box</div>
+				<div class="panel-body">	
+					<label>Standard</label>
+					<select class="form-control" ng-model="standard_data8" ng-options="std for std in standarddata8" ng-change="getDivisionData8()"></select>
+					
+					<label style="margin-top:6px">Division</label>
+					<select class="form-control" ng-model="division_data8" ng-options="y.divid as y.divname.guj for y in divisiondata8"></select>
+						
+					<button style="margin-top:6px" type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadslearn8report()" ng-if="standard_data8 != undefined && division_data8 != undefined">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="col-md-9" ng-if="showslearn8table || showerrromsg8">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Inactive Students List</div>
+				<div class="panel-body table-responsive">
+				<h4 ng-if="showerrromsg8">{{errorMsg}}</h4>
+					<table class="table table-bordered" ng-if="showslearn8table">
+						<thead>
+							<tr class="danger">
+								<td>Sr. No.</td>
+								<td>Student Name</td>
+								<td>Student ID</td>
+								<td>Roll No.</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="student in inActivestddata8 track by $index" class="success">
+								<td>{{$index + 1}}</td>
+								<td>{{student.fullname}}</td>
+								<td>{{student.studentid}}</td>
+								<td>{{student.rollno}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->

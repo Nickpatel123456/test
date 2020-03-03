@@ -1,0 +1,28 @@
+<br/>
+<form name="ViewUserForm" ng-submit="checkViewUserFormValid(ViewUserForm.$valid)" novalidate>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <select class="form-control" id="viewselectrole" ng-model="ViewUser.RoleType"
+                    ng-options="role.roleName for role in userRoleArray" required>
+                <option value="" selected disabled>તમે કોણ છો</option>
+            </select>
+        </div>
+
+        <div class="col-xs-6 col-md-3" ng-if="ViewUser.RoleType.roleType != undefined ">
+            <button type="submit" class="btn btn-info" ng-click="viewuserdetails()">યુઝર્સ જુઓ</button>
+        </div>
+    </div>
+    <br>
+
+    <!-- Start of Student Block -->
+    <viewstudent-form ng-if="viewform == 'student'"></viewstudent-form>
+    <!-- End of Student Block -->
+
+    <!-- Start of Teacher Block -->
+    <viewteacher-form ng-if="viewform == 'teacher'"></viewteacher-form>
+    <!-- End of Teacher Block -->
+
+    <!-- Start of Guest Block -->
+    <!-- <add-guest ng-if="ViewUser.RoleType.roleType == 'Guest'"> </add-guest> -->
+    <!-- End of Guest Block -->
+</form>

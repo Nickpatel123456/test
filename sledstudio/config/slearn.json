@@ -1,0 +1,71 @@
+{
+
+  "ui_config":{
+    "# comment general":"Roles having access to slearn are maintainned in the sledstudio.json",
+    "# subject comment":"This defines the id of subjects that are exposed to slearn",
+    "subject":[],
+    "session_control":{
+      "session_expiry_check":"5",
+      "session_expired_logout":"10",
+	  "showpopuptime":"15"
+    },
+    "subject_recording_time":"300",
+    "concept_category_qualifier":{"strong":80, "weak":60, "average":{"from":60,"to":80}},
+    "# concept_category_qualifier_1":"for concept to be called as strong a concepts avg_concept_accuracy_percent>=concept_category_qualifier.strong ",
+    "# concept_category_qualifier_2":"for concept to be called as weak a concepts avg_concept_accuracy_percent<=concept_category_qualifier.weak "
+
+  },
+
+
+  "# comment subject_usage_limitation":" This guides which floor which subject are available for which standard as well how much time is allowed",
+  "# comment":" DO NOT KEEP Entries of subject,floor whose data is not present in DB else JAR will not start",
+  "# comment subject_usage_limitation convetion":{"<subject_id>":{"<standard_id>":{"duration_usage_limit":"<duration in seconds>","floor_min":"<floor_min>","floor_max":"<floor_max>"}}},
+  "subject_usage_limitation":{
+    "1":{
+	  "6":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"6"},
+	  "7":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"7"},
+	  "8":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"8"}
+	},
+	"2":{
+      "1":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"1"},
+      "2":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"2"},
+      "3":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"3"},
+      "4":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"4"},
+      "5":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"5"},
+      "6":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"6"},
+	  "7":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"7"},
+	  "8":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"8"}
+    },
+	"3":{
+	  "3":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"3"},
+	  "4":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"4"},
+	  "5":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"5"},
+	  "6":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"6"},
+	  "7":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"7"},
+	  "8":{"duration_usage_limit":"3600","floor_min":"3","floor_max":"8"}
+	},
+    "4":{
+      "1":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"1"},
+      "2":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"2"},
+      "3":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"3"},
+      "4":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"4"},
+      "5":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"5"},
+      "6":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"6"},
+	  "7":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"7"},
+	  "8":{"duration_usage_limit":"4500","floor_min":"1","floor_max":"8"}
+    },
+    "6":{
+      "3":{"duration_usage_limit":"4500","floor_min":"3","floor_max":"3"},
+	  "4":{"duration_usage_limit":"4500","floor_min":"3","floor_max":"4"},
+	  "5":{"duration_usage_limit":"4500","floor_min":"3","floor_max":"5"},
+	  "6":{"duration_usage_limit":"4500","floor_min":"3","floor_max":"6"},
+	  "7":{"duration_usage_limit":"4500","floor_min":"3","floor_max":"7"},
+	  "8":{"duration_usage_limit":"4500","floor_min":"3","floor_max":"8"}
+	}
+  },
+
+  "# subject_preconditions":"there can be a few subjects that can be accessed only when they have qualified the previous subject as per the norms this can be a strong feature and yet to be brainstormed & implemented, it can be modified basis per standard",
+  "subject_preconditions":{
+
+  }
+}

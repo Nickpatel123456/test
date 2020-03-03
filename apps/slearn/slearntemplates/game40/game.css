@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #d5d8dc;
+}
+
+.click {
+    background-color: green;
+    color: white;
+}
+
+.header {
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.questiontext {
+    background-color: #6BBA85;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.p-10 {
+    padding: 10px;
+    padding-bottom: 5px;
+}
+
+span {
+    display: table-cell;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.table1 {
+    background-color: #bbc3b8db;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+table tr td:hover {
+    background-color: #F5DEB3;
+    cursor: pointer;
+}
+
+.answer {
+    background-color: burlywood;
+    display: inline-block;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 3px;
+    padding: 5px;
+    padding-bottom: 0px;
+}

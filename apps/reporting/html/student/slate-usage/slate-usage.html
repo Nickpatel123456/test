@@ -1,0 +1,38 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+                <span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+
+        <div class="col-md-6">
+            <center><h4>Student sLate Usage Reports ({{schoolname}})</h4></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <uib-tabset active="active">
+                <!-- <uib-tab index="0" heading="Total School Usage"><slate1-report></slate1-report></uib-tab> -->
+                <!-- <uib-tab index="1" heading="Total Subject Usage"><slate2-report></slate2-report></uib-tab> -->
+                <!-- <uib-tab index="2" heading="Total Standard Usage"><slate3-report></slate3-report></uib-tab> -->
+                <!-- <uib-tab index="3" heading="Standard v/s Subject Usage"><slate4-report></slate4-report></uib-tab> -->
+                <!-- <uib-tab index="1" heading="Student Wise Chapter Usage"><slate9-report></slate9-report></uib-tab> -->
+                <uib-tab index="2" heading="Student Wise Usage" ng-click="today5()">
+                    <slate5-report></slate5-report>
+                </uib-tab>
+                <uib-tab index="3" heading="All Standard Subject Usage" ng-click="today6()">
+                    <slate6-report></slate6-report>
+                </uib-tab>
+                <uib-tab index="4" heading="Total Chapter Usage" ng-click="today7()">
+                    <slate7-report></slate7-report>
+                </uib-tab>
+                <uib-tab index="5" heading="Inactive Students List">
+                    <slate8-report></slate8-report>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

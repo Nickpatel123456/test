@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.unit_content {
+    margin: auto;
+    background-color: hsla(1, 3%, 0%, 0.3);
+    margin-top:10px;
+    width: 98%;
+}
+
+.questiontext {
+    background-color: #F0E68C;
+    border-radius: 5px;
+    font-size: 20px;
+    display: block;
+    word-wrap: break-word;
+    line-height: 3;
+    padding: 5px;
+    margin-bottom: 6px;
+}
+
+.quesins {
+    background-color: cornsilk;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.span1 {
+    background-color: #eee;
+    border: 1px solid #888;
+    border-radius: 3px;
+    margin: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.span1:hover {
+    background-color: #F5DEB3;
+    cursor: pointer;
+}
+
+.span {
+    display: table-cell;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pl-5{
+    padding-left: 5px;
+}
+
+.answer {
+    background-color: #eee;
+    border: 1px solid #888;
+    border-radius: 3px;
+    display: inline;
+    margin: 5px;
+    padding: 8px;
+}

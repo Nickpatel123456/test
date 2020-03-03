@@ -1,0 +1,93 @@
+.slearnbackground {
+    background: url("../images/slearn_background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: inherit;
+}
+
+.conceptroombackground {
+    background: url("../images/conceptroom_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: inherit;
+}
+
+.floorbackground {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+.commonfloorcss {
+    cursor: pointer;
+}
+
+.pointsbackground {
+    background-color: burlywood;
+    border-radius: 10px;
+    margin: 0px;
+    padding-bottom: 5px;
+}
+
+.redback {
+    background-color: #CD323A;
+    padding: 1%;
+}
+
+.blueback {
+    background-color: #65D1AD;
+    padding: 1%;
+}
+
+.conceptroomback {
+    background-color: rgba(249, 231, 159, 0.7);
+    padding: 1%;
+}
+
+.doordiv {
+    cursor: pointer;
+    background-color: #eaeded;
+    border: 5px solid #F7B219;
+}
+
+.doordiv:hover {
+    background-color: #E7DBC5;
+}
+
+.subjectbackground {
+    /* background-color:#F8DF8B; */
+    border-color: lightblue;
+    text-align: center;
+    padding: 0.5%;
+    cursor: pointer;
+}
+
+.subjectbackground:hover {
+    background-color: #0099BB;
+}
+
+.conceptlistbox {
+    background-color: #d5f5e3;
+    padding: 1%;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.btn-warnng {
+    background-color: #F4D03F;
+}
+
+.grass_bg {
+    background-image: url("../images/grass_bg.png");
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.slearn_subject_bg_color {
+    /* background-image: url("../images/bg2.png"); */
+    background-color: #c1fff7;
+}

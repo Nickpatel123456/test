@@ -1,0 +1,102 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid" >  
+<!-- ng-if="showdashboardTable" -->
+	<div class="row">
+		<div class="col-md-3 col-sm-3">
+			<button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+				<span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+			</button>
+		</div>
+	</div>
+	
+	<div class="row" ng-if="showtable">
+		<div class="col-md-12">
+			<div class="panel-group">
+				<div class="panel panel-primary">
+					<div class="panel-heading">sLearn Dashboard Report Current Year Wise</div>
+					<div class="panel-body table-responsive">		
+						<center><h4 style="color:red">Total Actual Usage : {{aggregate_actual}}, Total Expected Usage : {{aggregate_expected}}, Total Percentage : {{aggregate_percentage | number : 2}}</h4></center>
+						<table class="table table-bordered table-responsive" style="margin-top:10px">
+							<thead>
+								<tr class="danger">
+								<td colspan="5" align="center">UNMF Program Schools</td>
+								</tr>
+								<tr class="danger">
+									<td align="center">Subject Name</td>
+									<td align="center">Actual Usage Hours</td>
+									<td align="center">Expected Usage Hours</td>
+									<td align="center">Percentage</td>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr class="success" align="center" ng-repeat="usagedata in allschoolUsageData">
+									<td>{{usagedata.subname.gj}}</td>
+									<td>{{usagedata.actual | number : 2}}</td>
+									<td>{{usagedata.expected | number : 2}}</td>
+									<td>{{usagedata.percentage | number : 2}}</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<table class="table table-bordered" ng-repeat="(key,value) in actualSubjectusage2 track by $index" style="margin-top:10px">
+							<thead>
+							<tr class="danger">
+								<td colspan="7" align="center">{{schoonamelist[$index]}}</td>
+							</tr>
+							</thead>
+							
+							<tbody>
+								<tr class="warning">
+								<td></td>
+								<td ng-repeat="sub in value" align="center">{{sub.subname.gj}}</td>
+								</tr>
+								
+								<tr class="success">
+								<td align="center">Expected Usage Hours</td>
+								<td ng-repeat="expected in value" align="center">{{expected.expected}}</td>
+								</tr>
+								
+								<tr class="success">
+								<td align="center">Actual Usage Hours</td>
+								<td ng-repeat="actualuse in value" align="center">{{actualuse.actualuse}}</td>
+								</tr>
+								
+								<tr class="success">
+								<td align="center">Percentage</td>
+								<td ng-repeat="actualuse in value" align="center">
+									<div ng-if="actual_usage.actualuse != -1">{{actualuse.percentage | number : 2}}</div>
+									<div ng-if="actual_usage.actualuse == -1">-</div>
+								</td>
+								</tr>
+							</tbody>
+							
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <div class="col-md-3"> -->
+			<!-- <table class="table table-bordered table-responsive" style="margin-top:10px"> -->
+				<!-- <thead> -->
+					<!-- <tr class="danger"> -->
+						<!-- <td align="center">Subject Name</td> -->
+						<!-- <td align="center">Actual Usage Hours</td> -->
+						<!-- <td align="center">Expected Usage Hours</td> -->
+						<!-- <td align="center">Percentage</td> -->
+					<!-- </tr> -->
+				<!-- </thead> -->
+				
+				<!-- <tbody> -->
+					<!-- <tr class="success" align="center" ng-repeat="usagedata in allschoolUsageData"> -->
+						<!-- <td>{{usagedata.subname.gj}}</td> -->
+						<!-- <td>{{usagedata.actual | number : 2}}</td> -->
+						<!-- <td>{{usagedata.expected | number : 2}}</td> -->
+						<!-- <td>{{usagedata.percentage | number : 2}}</td> -->
+					<!-- </tr> -->
+				<!-- </tbody> -->
+			<!-- </table> -->
+		<!-- </div> -->
+	</div>
+</div>

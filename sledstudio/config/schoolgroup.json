@@ -1,0 +1,109 @@
+{
+	"# General comments":{
+		"1":"This file is mandatory when jar is operated at productMode: CLOUD_REPORTING",
+		"2":"schoolslens MUST maintain a proper revision history of all config files "
+	},
+	"schoolgroup": {
+		"1": {
+			"name": "All Schools",
+			"description": "All schools including Program, Government and Private Control Schools",
+			"school_id_list": [102,203,204,205,306,307,308,309,410,511,512,513,514,515,516,104,310,311,206,207]
+		},
+		"2": {
+			"name": "Program",
+			"description": "All schools of the program",
+			"school_id_list": [102,203,204,205,306,307,308,309,410,511,512,513,514]
+		},
+		"3": {
+			"name": "Government",
+			"description": "All government control schools",
+			"school_id_list": [516,310,206]
+		},
+		"4": {
+			"name": "Private Control",
+			"description": "All private control schools",
+			"school_id_list": [515,104,311,207]
+		},
+		"5": {
+			"name": "Ahmedabad Cluster",
+			"description": "Schools from Ahmedabad Cluster including Program, government control and private control",
+			"school_id_list": [102,104],
+			"cluster_id": 1
+		},
+		"6": {
+			"name": "Chappi Cluster",
+			"description": "Schools from Chappi Cluster including Program, government control and private control",
+			"school_id_list": [203,204,205,206,207],
+			"cluster_id": 2
+		},
+		"7": {
+			"name": "Indrad Cluster",
+			"description": "Schools from Indrad Cluster including Program, government control and private control",
+			"school_id_list": [306,307,308,309,310,311],
+			"cluster_id": 3
+		},
+		"8": {
+			"name": "Mehmadpur Cluster",
+			"description": "Schools from Mehmadpur Cluster including Program, government control and private control",
+			"school_id_list": [410],
+			"cluster_id": 4
+		},
+		"9": {
+			"name": "Surat Cluster",
+			"description": "Schools from Surat Cluster including Program, government control and private control",
+			"school_id_list": [511,512,513,514,515,516],
+			"cluster_id": 5
+		}
+	},
+	"cluster": {
+		"1": 5,
+		"2": 6,
+		"3": 7,
+		"4": 8,
+		"5": 9
+	},
+	"school_detail":{
+		"102":{"school_id":102,"address":"Ahmedabad","pin_code":380051,"school_city":"Ahmedabad","school_cluster":1,"school_dist":"Ahmedabad","school_name":"પાવરહાઉસ પ્રાથમિક શાળા(ઊર્જા વિદ્યાલય)","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"104":{"school_id":104,"address":"Ahmedabad","pin_code":380050,"school_city":"Ahmedabad","school_cluster":1,"school_dist":"Ahmedabad","school_name":"Diwanballubhai","school_state":"gujarat","school_type":"Control","is_urban":"yes"},
+		"203":{"school_id":203,"address":"Bharkawada","pin_code":380051,"school_city":"Chappi","school_cluster":2,"school_dist":"Chappi","school_name":"ભરકાવાળા પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"204":{"school_id":204,"address":"Chappi","pin_code":380051,"school_city":"Chappi","school_cluster":2,"school_dist":"Chappi","school_name":"છાપી પગાર કેન્દ્ર શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"205":{"school_id":205,"address":"Kodrali","pin_code":380051,"school_city":"Chappi","school_cluster":2,"school_dist":"Chappi","school_name":"કોદરાલી પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"206":{"school_id":206,"address":"Magarwada","pin_code":385410,"school_city":"Chappi","school_cluster":2,"school_dist":"Banaskantha","school_name":"Magarwada prathmik shala","school_state":"Gujarat","school_type":"Control","is_urban":"yes"},
+		"207":{"school_id":207,"address":"Chappi","pin_code":383230,"school_city":"Banaskatha","school_cluster":2,"school_dist":"Sabarkantha","school_name":"Saraswati prathmik shala","school_state":"Gujarat","school_type":"Control","is_urban":"yes"},
+		"306":{"school_id":306,"address":"Achrasan","pin_code":380051,"school_city":"Indrad","school_cluster":3,"school_dist":"Indrad","school_name":"અચરાસણ પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"307":{"school_id":307,"address":"Ankhol","pin_code":380051,"school_city":"Indrad","school_cluster":3,"school_dist":"Indrad","school_name":"અણખોલ પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"308":{"school_id":308,"address":"Irana","pin_code":380051,"school_city":"Indrad","school_cluster":3,"school_dist":"Indrad","school_name":"ઇરાણા પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"309":{"school_id":309,"address":"Indrad","pin_code":380051,"school_city":"Indrad","school_cluster":3,"school_dist":"Indrad","school_name":"શારદામંદિર પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"310":{"school_id":310,"address":"Chatral","pin_code":382740,"school_city":"kalol","school_cluster":3,"school_dist":"Ghandhinagar","school_name":"Isand primary school","school_state":"Gujarat","school_type":"Control","is_urban":"yes"},
+		"311":{"school_id":311,"address":"Chatral","pin_code":382729,"school_city":"Chatral","school_cluster":3,"school_dist":"Mehsana","school_name":"Adarsh prathmik shala","school_state":"Gujarat","school_type":"Control","is_urban":"yes"},
+		"410":{"school_id":410,"address":"Mehmadpur","pin_code":380051,"school_city":"Mehmadpur","school_cluster":4,"school_dist":"Mehmadpur","school_name":"શ્રી મેમદપુર પે. કેન્દ્ર શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"511":{"school_id":511,"address":"Akhakhol","pin_code":380051,"school_city":"Surat","school_cluster":5,"school_dist":"Surat","school_name":"અખાખોલ પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"512":{"school_id":512,"address":"Dhoranpardi","pin_code":380051,"school_city":"Surat","school_cluster":5,"school_dist":"Surat","school_name":"ધોરણ પારડી પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"513":{"school_id":513,"address":"Karjan","pin_code":380051,"school_city":"Surat","school_cluster":5,"school_dist":"Surat","school_name":"કરજણ પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"514":{"school_id":514,"address":"Navipardi","pin_code":380051,"school_city":"Surat","school_cluster":5,"school_dist":"Surat","school_name":"નવી પારડી પ્રાથમિક શાળા","school_state":"Gujarat","school_type":"Program","is_urban":"Yes"},
+		"515":{"school_id":515,"address":"Surat","pin_code":394326,"school_city":"Surat","school_cluster":5,"school_dist":"Surat","school_name":"Vashishtha vidhyalaya","school_state":"Gujarat","school_type":"Control","is_urban":"yes"},
+		"516":{"school_id":516,"address":"Surat","pin_code":364002,"school_city":"Surat","school_cluster":5,"school_dist":"Bhavnagar","school_name":"Gijubhai badheka","school_state":"Gujarat","school_type":"Control","is_urban":"yes"}
+	},
+	"school_server_detail":{
+		"102":[1021,1022],
+		"104":[1041],
+		"203":[2031,2032,2033],
+		"204":[2041,2042,2043,2044,2045,2046],
+		"205":[2051,2052,2053],
+		"206":[2061],
+		"207":[2071],
+		"306":[3061,3062],
+		"307":[3071,3072,3073],
+		"308":[3081,3082,3083,3084],
+		"309":[3091,3092,3093,3094,3095,3096,3097],
+		"310":[3101],
+		"311":[3111],
+		"410":[4101,4102,4103,4104,4105,4106],
+		"511":[5111,5112],
+		"512":[5121,5122,5123,5124,5125],
+		"513":[5131,5132,5133,5134],
+		"514":[5141,5142,5143,5144,5145,5146,5147],
+		"515":[5151],
+		"516":[5161]
+	}
+}

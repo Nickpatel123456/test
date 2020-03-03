@@ -1,0 +1,31 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+			<button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+				<span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+			</button>
+		</div>
+		
+		<div class="col-md-6">
+			<center><h4>Student sLearn Usage Reports ({{schoolname}})</h4></center>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<uib-tabset active="active">
+				<!-- <uib-tab index="0" heading="Total School Usage"><slearn1-report></slearn1-report></uib-tab> -->
+				<!-- <uib-tab index="1" heading="Total Subject Usage"><slearn2-report></slearn2-report></uib-tab> -->
+				<!-- <uib-tab index="2" heading="Total Standard Usage"><slearn3-report></slearn3-report></uib-tab> -->
+				<!-- <uib-tab index="3" heading="Standard v/s Subject Usage"><slearn4-report></slearn4-report></uib-tab> -->
+				<uib-tab index="0" heading="Week Wise Subject Usage"><slearn7-report></slearn7-report></uib-tab>
+				<uib-tab index="1" heading="Student Wise Usage" ng-click="today5()"><slearn5-report></slearn5-report></uib-tab>
+				<uib-tab index="2" heading="All Standard Subject Usage" ng-click="today6()"><slearn6-report></slearn6-report></uib-tab>
+				<uib-tab index="3" heading="Week Wise Standard Usage"><slearn8-report></slearn8-report></uib-tab>
+				<uib-tab index="4" heading="Inactive Students List"><slearn9-report></slearn9-report></uib-tab>
+				<uib-tab index="5" heading="Teacher's Report Usage Report" ng-if="productmode == 'CLOUD_REPORTING'"><slearn10-report></slearn10-report></uib-tab>
+			</uib-tabset>
+		</div>
+	</div>	
+</div>

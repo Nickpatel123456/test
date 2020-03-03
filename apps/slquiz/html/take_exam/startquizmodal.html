@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="startquizmodalblock">
+      <div class="modal-header">
+        <h4 class="modal-title">એસએલ ક્વિઝમાં તમારું સ્વાગત છે.</h4>
+      </div>
+      <div class="modal-body">
+		<h5>ક્વિઝ : {{slquizQuestionPaper.quizid}}</h5>
+		<h5>ધોરણ: {{slquizQuestionPaper.standard}}</h5>
+		<h5>વિષય: {{slquizQuestionPaper.subject}}</h5>
+		<!--<h5>સમય: {{slquizQuestionPaper.time}} મિનિટ</h5>-->
+		<h5>કુલ પ્રશ્નો: {{slquizQuestionPaper.totalquestion}}</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" ng-click="startPoppingQuestions()">શરૂ કરો</button>
+      </div>
+    </div>
+</div>

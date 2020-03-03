@@ -1,0 +1,43 @@
+{
+  "#comment":{
+    "1":"This file is mandatory when jar is operated at productMode: SCHOOL",
+    "2":"schoolslens MUST maintain a proper revision history of all config files "
+  },
+  "server_detail":{
+    "server_type":"SERVER",
+    "server_id":1021,
+    "#comment server_type":"the 2 possible values are case sensitive 'SMART_CLASS' or 'SERVER' updating user info will be exposed only on server mode",
+    "#comment server_id":"within school for each instance of jar running will correspond to unique server_id its responsibility of the tech-ops team to ensure that",
+    "#comment server_id 1":" NOTE SLEARN can run only on 1 machine in a school , else ETL wont be feasible ! ",
+    "#comment server_id 2":" server_id will always be prefixed with school_id followed by digit, server_id '<school_id>1' is always reserved for server type SERVER "
+  },
+
+  "# comment school_detail":{
+    "1":"once a school id is given to a school it should never be changed",
+    "2":"this is used by frontend as well backend & it the only place where school details are maintained",
+    "3":"values of school_detail should always be in sync with values in schoolgroup.json -> school_detail[<school_id>]"
+  },
+  "school_detail":{
+    "school_id" : 102,
+    "address" : "Ahmedabad",
+    "pin_code" : 380051,
+    "school_city" : "Ahmedabad",
+    "school_cluster" : 1,
+    "school_dist" : "Ahmedabad",
+    "school_name" : "પાવરહાઉસ પ્રાથમિક શાળા(ઊર્જા વિદ્યાલય)",
+    "school_state" : "Gujarat",
+    "school_type" : "Program",
+    "is_urban" : true
+  },
+
+  "# comment standard_division_map 1":"This is maintained only for front end",
+  "# comment standard_division_map 2":"This should be obtained by a webservice call instead of hardcoded values, schoolslens tech team shud do implement it later in early 2018",
+  "standard_division_map":{
+    "3":[1],
+    "4":[1],
+    "5":[1],
+    "6":[1],
+    "7":[1],
+    "8":[1]
+  }
+}

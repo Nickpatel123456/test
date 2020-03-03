@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #ADDEF0;
+}
+
+table tr td:hover {
+    background-color: #F5DEB3;
+    cursor: pointer;
+}
+
+.leftboxColor {
+    background-color: beige;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.rightboxColor {
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.questiontext {
+    background-color: lightcyan;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+table {
+    background-color: #FFEB3B;
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.rightAnswer {
+    background-color: yellowgreen;
+    border: 1px solid #333;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.wrongAnswer {
+    background-color: #f18a73fc;
+    border: 1px solid #333;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#gmins {
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 15px;
+    display: -webkit-inline-box;
+    padding: 10px;
+    background: aliceblue;
+    font-size: 20px;
+}
+
+.box {
+    background: burlywood;
+    margin: auto;
+    /* padding: 10px; */
+    padding-bottom: 0px;
+    padding-top: 18px;
+    border-radius: 5px;
+    border: 1px solid chartreuse;
+}
+
+.table-bordered > tbody > tr > td {
+    padding-bottom: 0px;
+    vertical-align: middle;
+    border: 1px solid black;
+}
+
+span {
+    display: table-cell;
+}
+
+.pl-5{
+    padding-left: 5px;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+    padding-top: 8px;
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive>.table-bordered {
+        border: 1px solid black;
+    }
+}

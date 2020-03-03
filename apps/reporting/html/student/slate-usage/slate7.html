@@ -1,0 +1,116 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label>From Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate7"
+                               is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open1()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>To Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate7"
+                               is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open2()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>Standard</label>
+                    <select class="form-control" ng-model="std_analysis7" ng-options="std for std in standardanalysis7"
+                            ng-change="getsubjectdata7(); sub_analysis7 = undefined; div_analysis7 = undefined"></select>
+
+                    <label style="margin-top:6px">Subject</label>
+                    <select class="form-control" ng-model="sub_analysis7"
+                            ng-options="s.sub_id as s.sub_name.gj for s in subjectdata7"
+                            ng-change="getDivisionData7(); div_analysis7 = undefined"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="div_analysis7"
+                            ng-options="y.divid as y.divname.guj for y in divanalysis7"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadslate7report()"
+                            ng-if="fromDate7 != undefined && toDate7 != undefined && std_analysis7 != undefined && sub_analysis7 != undefined && div_analysis7 != undefined">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showtable7">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Student Chapter Usage</h1></div>
+                <div class="panel-body">
+                    <h4 ng-if="studentsLateChapterUsageData.length == 0">{{errorMsg}}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered datatable nowrap" ng-if="studentsLateChapterUsageData.length != 0">
+                            <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Student Name</th>
+                                <th>Chapter Usage</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="chapterusage in studentsLateChapterUsageData">
+                                <td>{{$index+1}}</td>
+                                <td>{{chapterusage.name}}</td>
+                                <td>
+                                    <table class="table table-striped table-bordered datatable nowrap" ng-if="chapterusage.sem1.length != 0">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="2">Sem1 Chapter Details</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Chapter Name</th>
+                                            <th>Usage In HH:MM:SS</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="sem1 in chapterusage.sem1">
+                                            <td>{{sem1.chaptername}}</td>
+                                            <td>{{sem1.duration | formatTimer}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-striped table-bordered datatable nowrap" ng-if="chapterusage.sem2.length != 0">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="2">Sem2 Chapter Details</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Chapter Name</th>
+                                            <th>Usage In HH:MM:SS</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="sem2 in chapterusage.sem2">
+                                            <td>{{sem2.chaptername}}</td>
+                                            <td>{{sem2.duration | formatTimer}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

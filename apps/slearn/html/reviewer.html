@@ -1,0 +1,164 @@
+<nav-bar></nav-bar>
+<style>
+    .panel-title {
+        margin-bottom: -1px;
+        display: block;
+        vertical-align: bottom;
+    }
+
+    .list-group-item {
+        padding-bottom: 0px;
+    }
+
+    .panel-heading {
+        padding-bottom: 3px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-md-3">
+            <center ng-if="showActivityDetails">
+			<h5>{{"Template Id: " + tempId + ", Activity Id : " + actId}}</h5>
+            <h5 style="margin:auto;">{{" Skill : " + skillname }}</h5>
+            <hr style="margin:0px;">
+            </center>
+            <center><h5> પ્રવૃત્તિ લોડ કરવા ખાના પસંદ કરો.</h5></center>
+            <div class="panel-group" id="accordion" style="margin: 0px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color:#F2DD95;">
+                        <h6 class="panel-title">
+                            <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse1"
+                                 style="cursor:pointer;line-height:25px" class="collapseheader">વિષય :
+                                {{selectdSubjectName}}
+                            </div>
+                        </h6>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse collapsedropdown"
+                         ng-init="subjectsection = { subjectData :  null }">
+                        <div data-toggle="collapse" style="cursor:pointer" ng-repeat="sub in subject"
+                             ng-click="loadFloorList(sub.subid,sub.name.gj); subjectsection.subjectData = sub"
+                             data-target="#collapse1" data-parent="#accordion"
+                             class="collapseitems list-group-item panel-title"
+                             ng-class="{selected: subjectsection.subjectData == sub}">{{sub.name.gj}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" ng-if="showDivFloor">
+                    <div class="panel-heading" style="background-color:#F2DD95;">
+                        <h6 class="panel-title">
+                            <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse2"
+                                 style="cursor:pointer;line-height:25px" class="collapseheader">ફ્લોર : {{selectdFloor}}
+                            </div>
+                        </h6>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse collapsedropdown"
+                         ng-init="floorsection = { floorData:  null }">
+                        <div data-toggle="collapse" style="cursor:pointer" ng-repeat="x in floor"
+                             ng-click="loadConceptRoomList(x.floorid); floorsection.floorData = x"
+                             data-target="#collapse2" data-parent="#accordion"
+                             class="collapseitems list-group-item panel-title"
+                             ng-class="{selected: floorsection.floorData == x}">{{x.floorid}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" ng-if="showDivConceptroom">
+                    <div class="panel-heading" style="background-color:#F2DD95;">
+                        <h6 class="panel-title">
+                            <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3"
+                                 style="cursor:pointer;line-height:25px" class="collapseheader">કન્સેપ્ટ રૂમ :
+                                {{conceptroomName}}
+                            </div>
+                        </h6>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse collapsedropdown"
+                         ng-init="conceptroomsection = { conceptRroom:  null }">
+                        <div data-toggle="collapse" style="cursor:pointer" ng-repeat="cr in conceptroom"
+                             ng-click="loadConceptList(cr.conceptroom_id,cr.concept_room_name); conceptroomsection.conceptRoom = cr"
+                             data-target="#collapse3" data-parent="#accordion"
+                             class="collapseitems list-group-item panel-title"
+                             ng-class="{selected: conceptroomsection.conceptRoom == cr}">{{cr.concept_room_name}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" ng-if="showDivConcept">
+                    <div class="panel-heading" style="background-color:#F2DD95;">
+                        <h6 class="panel-title">
+                            <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse4"
+                                 style="cursor:pointer;line-height:25px" class="collapseheader">કન્સેપ્ટ :
+                                {{conceptName}}
+                            </div>
+                        </h6>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse collapsedropdown"
+                         ng-init="conceptnamesection = { conceptName:  null }">
+                        <div data-toggle="collapse" style="cursor:pointer" ng-repeat="c in concept"
+                             ng-click="loadActivityList(c.concept_id,c.concept_name); conceptnamesection.conceptName = c"
+                             data-target="#collapse4" data-parent="#accordion"
+                             class="collapseitems list-group-item panel-title"
+                             ng-class="{selected: conceptnamesection.conceptName == c}">{{c.concept_name}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" ng-if="showDivActivity">
+                    <div class="panel-heading" style="background-color:#F2DD95;">
+                        <h6 class="panel-title">
+                            <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse5"
+                                 style="cursor:pointer;line-height:25px" class="collapseheader">એક્ટિવીટી :
+                                {{activityName}}
+                            </div>
+                        </h6>
+                    </div>
+                    <div id="collapse5" class="panel-collapse collapse collapsedropdown"
+                         ng-init="activitysection = { activityName:  null }">
+                        <div data-toggle="collapse" style="cursor:pointer" ng-repeat="a in activity"
+                             ng-click="changedActivity(a.activity_id,a.activity_name); activitysection.activityName = a"
+                             data-target="#collapse5" data-parent="#accordion"
+                             class="collapseitems list-group-item panel-title"
+                             ng-class="{selected: activitysection.activityName == a}">{{"[" + a.activity_id + "] "+
+                            a.activity_name}}
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-md btn-block" ng-if="showSubmitButton"
+                        ng-click="displayButtonsToShowConcepts()" style="margin-top:5px">સબમિટ
+                </button>
+            </div>
+
+        </div>
+
+        <div class="col-xs-8 col-md-9">
+            <div class="row">
+                <div class="col-xs-4 col-md-4">
+                    <button class="btn btn-md btn-block" ng-class="{'btn-success': isActive('activity')}"
+                            ng-show="allvaluesselected == 1" ng-click="loadActivity()">પ્રવૃત્તિ
+                    </button>
+                </div>
+
+                <div class="col-xs-4 col-md-4">
+                    <button class="btn btn-md btn-block" ng-class="{'btn-success': isActive('remedial1')}"
+                            ng-show="allvaluesselected == 1 && isanchor == 'false'" ng-click="loadRemedial1()">રિમિડિયલ
+                        1 (ઉપચારાત્મક 1)
+                    </button>
+                </div>
+
+                <div class="col-xs-4 col-md-4">
+                    <button class="btn btn-md btn-block" ng-class="{'btn-success': isActive('remedial2')}"
+                            ng-show="allvaluesselected == 1 && isanchor == 'false'" ng-click="loadRemedial2()">રિમિડિયલ
+                        2 (ઉપચારાત્મક 2)
+                    </button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:5px;">
+                <div class="col-md-12">
+                    <div id="loaddetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

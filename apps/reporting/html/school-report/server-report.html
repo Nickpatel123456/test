@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2" ng-if="btnshow">
+            <button type="button" class="btn btn-success" style="margin-bottom:4px;margin-left:50px;"
+                    ng-click="goBack('individual')">
+                <span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+        <div class="col-sm-8 text-center" ng-class="{'col-md-offset-2':productmode == 'SCHOOL'}"
+             style="font-size: 120%;margin-top: 5px;">
+            {{schoolname}}
+        </div>
+    </div>
+
+    <div class="row" style="margin-left:40px">
+       <div class="info-card" ng-click="reportshowPage('/dashboard-report')">
+                <div class="front">
+                    <center><img class="img-responsive" style="margin-top:7px;" ng-src="{{baseLinkForScope+'images/dashboard.png'}}"/><h5>SLEARN DASHBOARD</h5></center>
+                </div>
+            <div class="back">
+                <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>SLEARN DASHBOARD</h5></center>
+            </div>
+        </div>
+
+        <div class="info-card" ng-click="reportshowPage('/student-slearnusage')" ng-if="serverrole == 'SERVER'">
+                <div class="front">
+                    <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product1.png'}}"/><h5>STUDENT SLEARN USAGE REPORT</h5></center>
+                </div>
+            <div class="back">
+                <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>STUDENT SLEARN USAGE REPORT</h5></center>
+            </div>
+        </div>
+
+        <div class="info-card" ng-click="reportshowPage('/student-slearnAcademic')" ng-if="serverrole == 'SERVER'">
+                <div class="front">
+                    <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product1.png'}}"/><h5>STUDENT SLEARN ACADEMIC REPORT</h5></center>
+                </div>
+            <div class="back">
+                <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>STUDENT SLEARN ACADEMIC REPORT</h5></center>
+            </div>
+        </div>
+
+        <!-- <div class="info-card" ng-click="reportshowPage('/skillwise-report')"> -->
+        <!-- <div class="front"> -->
+        <!-- <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product1.png'}}"/><h5>SLEARN SKILL WISE USAGE REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- <div class="back"> -->
+        <!-- <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>SLEARN SKILLS REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <div class="info-card" ng-click="reportshowPage('/student-slateusage')">
+                <div class="front">
+                    <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product2.png'}}"/><h5>STUDENT SLATE USAGE REPORT</h5></center>
+                </div>
+            <div class="back">
+                <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>STUDENT SLATE USAGE REPORT</h5></center>
+            </div>
+        </div>
+
+        <div class="info-card" ng-click="reportshowPage('/teacher-slateusage')">
+            <div class="front">
+                <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product2.png'}}"/><h5>TEACHER
+                    SLATE USAGE REPORT</h5></center>
+            </div>
+            <div class="back">
+                <center><img class="img-responsive card-image"
+                             ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>TEACHER SLATE USAGE
+                    REPORT</h5></center>
+            </div>
+        </div>
+
+        <!-- <div class="info-card" > -->
+        <!-- <div class="front"> -->
+        <!-- <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product2.png'}}"/><h5>SLATE ACADEMIC REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- <div class="back"> -->
+        <!-- <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>SLATE ACADEMIC REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <!-- <div class="info-card" ng-click="reportshowPage('/teacherreportusage-report')"> -->
+        <!-- <div class="front"> -->
+        <!-- <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product4.png'}}"/><h5>TEACHER'S REPORTS USAGE REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- <div class="back"> -->
+        <!-- <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>TEACHER'S REPORTS USAGE REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <!-- <div class="info-card" ng-click="reportshowPage('/slquizyear-report')"> -->
+        <!-- <div class="front"> -->
+        <!-- <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product3.png'}}"/><h5>SLQUIZ YEAR WISE REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- <div class="back"> -->
+        <!-- <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>SLQUIZ YEAR WISE REPORT</h5></center> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <!--<div class="info-card" ng-click="reportshowPage('/studentreport')" ng-if="userrole == 'student'">
+                <div class="front">
+                    <center><img class="img-responsive" ng-src="{{baseLinkForScope+'images/product1.png'}}"/><h5>INDIVIDUAL STUDENT SLEARN USAGE REPORT</h5></center>
+                </div>
+            <div class="back">
+                <center><img class="img-responsive card-image" ng-src="{{baseLinkForScope+'images/graphanimation.gif'}}"/><h5>INDIVIDUAL STUDENT SLEARN USAGE REPORT</h5></center>
+            </div>
+        </div>-->
+    </div>
+</div>

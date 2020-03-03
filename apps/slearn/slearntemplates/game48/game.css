@@ -1,0 +1,108 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url("1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+table {
+    background-color: #cdd4d8;
+    font-size: 20px;
+}
+
+table tr td:hover {
+    background-color: #F5DEB3;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+#gmins {
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 15px;
+    display: -webkit-inline-box;
+    padding: 10px;
+    background: aliceblue;
+    font-size: 20px;
+}
+
+.questiontext {
+    background-color: #F1AF8F;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    overflow: overlay;
+}
+
+.leftboxColor {
+    background-color: #F5DEB3;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.middlboxColor {
+    background-color: #d9edf7;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.rightboxColor {
+    background-color: #40E0D0;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.instruction {
+    margin-bottom: 10px;
+}
+
+.answer {
+    background-color: yellowgreen;
+    border: 1px solid #333;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.mt-15 {
+    margin-top: -15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .mt-15 {
+        margin-top: -10px;
+    }
+
+    .table-responsive {
+        border: 1px solid black;
+    }
+}
+
+.table-bordered > tbody > tr > td {
+    padding-bottom: 0px;
+    vertical-align: middle;
+    border: 1px solid black;
+}
+
+span {
+    display: table-cell;
+}
+
+.pl-5{
+    padding-left: 5px;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+    padding-top: 8px;
+}

@@ -1,0 +1,90 @@
+<style>
+    hr {
+        border: 1px dashed black;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label style="margin-top:6px">Subject</label>
+                    <select class="form-control" ng-model="subject_data6"
+                            ng-options="sub.sub_name.gj for sub in subject_details_data6"
+                            ng-change="getstandard_data6(); standard_data6 = division_data6 = undefined"></select>
+
+                    <label style="margin-top:6px">Standard</label>
+                    <select class="form-control" ng-model="standard_data6"
+                            ng-options="std for std in standard_details_data6"
+                            ng-change="getdivision_data6(); division_data6 = undefined"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="division_data6"
+                            ng-options="div.div_id as div.div_name.guj for div in division_details_data6"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px"
+                            ng-click="studentwiseSkillreport()"
+                            ng-if="subject_data6 != undefined && standard_data6 != undefined && division_data6 != undefined">
+                        Show Skill Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">School Floor Level analysis</h1></div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <center ng-if="erorrmsg"><h3 style="color:red">No data available</h3></center>
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ui-jq="dataTable"
+                               ui-options="tableOption6" ng-if="showskillreporttable">
+                            <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Student Name</th>
+                                <th ng-repeat="skill_aggre in aggregateSkillReport track by $index">
+                                    {{skill_aggre.skill_name.guj}}
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>Classroom Skill Aggregate(%)</td>
+                                <td ng-repeat="skill_aggre in aggregateSkillReport track by $index">
+                                    <span>{{skill_aggre.aggregate}} %</span>
+                                    <hr/>
+                                    <span>Attem. Act. : {{skill_aggre.completed_act}}</span>
+                                    <hr/>
+                                    <span>Avai. Act. : {{skill_aggre.total_act}}</span>
+                                </td>
+                            </tr>
+
+                            <tr ng-repeat="(key,value) in studentskillReport">
+                                <td>{{value.srno}}</td>
+                                <td>{{value.stundet_data.user_detail.first_name + " " +
+                                    value.stundet_data.user_detail.middle_name}}
+                                </td>
+                                <td ng-repeat="skill_percentage in value.skill_data track by $index">
+                                    <span>Floor {{skill_percentage.floorid}}</span>
+                                    <hr/>
+                                    <span>{{skill_percentage.per | number:2}} %</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

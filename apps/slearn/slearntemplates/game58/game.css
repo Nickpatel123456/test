@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    background-color: #d5d8dc;
+}
+
+.unit_content {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+}
+
+.header {
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.questiontext {
+    background-color: #F0E68C;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+input[type=checkbox] {
+    transform: scale(2.0, 2.0);
+    -moz-transform: scale(2.0, 2.0);
+    -ms-transform: scale(2.0, 2.0);
+    -webkit-transform: scale(2.0, 2.0);
+    -o-transform: scale(2.0, 2.0);
+}
+
+span {
+    display: table-cell;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+.radio {
+    margin-bottom: 0px;
+}
+
+label {
+    width: -webkit-fill-available;
+}
+
+.radioButton {
+    position: unset;
+    background: beige;
+    padding-top: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid red;
+    font-size: 20px;
+}
+
+.radioButton:hover {
+    cursor: pointer;
+    background: #b1f7b1;
+}

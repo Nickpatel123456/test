@@ -1,0 +1,100 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid">
+	<div class="row">	
+		<div class="col-md-6">
+			<div class="panel-group">
+			<div class="panel panel-info">
+				<div class="panel-heading">Product Usage - Total</div>
+				<div class="panel-body">
+					<div class="row">
+					
+					<div class="col-md-5">
+						<label>From Date</label>
+						<p class="input-group">
+						<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+						<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+						</p>
+					</div>
+					
+					<div class="col-md-5">
+						<label>To Date</label>
+						<p class="input-group">
+						<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+						<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+						</p>
+					</div>
+					
+					<div class="col-md-2">
+						<br>
+						<button type="button" class="btn btn-primary" style="margin-top:4px" ng-click="loadGraph()">Submit</button>
+					</div>
+					
+					</div>	
+					<hr>
+					
+					<div class="row">					
+						<center>Product Usage - Total</center><br>
+						<canvas class="chart chart-bar" chart-data="data" chart-options="options1" chart-series="product_name" chart-dataset-override="chartcolor" height="150px"></canvas>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						<ul class="pager">
+							<li class="previous"><a href="" data-toggle="modal" data-target="#sLearnModal" ng-click="slearnmonthGraph()">sLearn</a></li>
+							<li class="next"><a href="" data-toggle="modal" data-target="#sLateModal" ng-click="slatemonthGraph()">sLate</a></li>
+						</ul>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="panel-group">
+			<div class="panel panel-success">
+				<div class="panel-heading">sLearn Till Date Graph</div>
+				<div class="panel-body">
+					<center>sLearn Till Date Graph</center><br>
+					<canvas class="chart chart-bar" chart-data="slearn_data1" chart-options="options5" chart-series="subjectname" chart-dataset-override="chartcolor" height="150px"></canvas>
+				</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+	
+	<div class="modal fade" id="sLearnModal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg">    
+		<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title">sLearn Monthly Usage</h4>
+        </div>
+        <div class="modal-body">
+		<canvas class="chart chart-bar" chart-data="slearnmonth_data" chart-options="options3" chart-series="subjectname" chart-dataset-override="chartcolor" height="150px"></canvas>
+		</div>
+		<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		</div>
+    </div>
+	</div>
+	
+	<div class="modal fade" id="sLateModal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title">sLate Monthly Usage</h4>
+		</div>
+		<div class="modal-body">
+		<canvas class="chart chart-bar" chart-data="slatemonth_data" chart-options="options4" chart-series="subjectname" chart-dataset-override="chartcolor" height="150px"></canvas>
+        </div>
+		<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+		</div>
+    </div>
+	</div>	
+</div>

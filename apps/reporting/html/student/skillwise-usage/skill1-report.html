@@ -1,0 +1,194 @@
+<br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Selection Box</div>
+				<div class="panel-body">	
+					<div class="row">
+						<div class="col-sm-2">
+							<label>Standard</label>
+							<select class="form-control" ng-model="standarddata1" ng-options="std.id for std in standard_details1" ng-change="getdivisionDetails1(); divisiondata1 = undefined"></select>
+						</div>
+						
+						<div class="col-sm-2">
+							<label>Division</label>
+							<select class="form-control" ng-model="divisiondata1" ng-options="div.id as div.name.guj for div in division_details1"></select>
+						</div>
+						
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-primary" style="margin-top:24px" ng-click="loadskill1report()" ng-if="standarddata1 != undefined && divisiondata1 != undefined">Submit</button>
+						</div>
+					</div>
+					<br>
+					<div class="row" ng-if="showstudentdetailstable">
+						<div class="col-sm-6 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="danger">
+										<td>Sr. No.</td>
+										<td>Student Name</td>
+										<td>Details</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="(key,value) in stdentdetails track by $index" class="success">
+										<td>{{$index+1}}</td>
+										<td>{{value.user_detail.first_name + " " + value.user_detail.middle_name}}</td>
+										<td><button class="btn btn-default" ng-click="showStudentSkillDetails(value)" data-toggle="modal" data-target="#studentskilltModal">Get Details</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="studentskilltModal" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg" style="width:100%">    
+		<div class="modal-content">
+			<div class="modal-header">
+				{{studentname}}
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<center><img ng-src="{{imgurl}}" class="img-responsive" ng-if="showloading"></center>
+				<div class="row" ng-if="science1">
+					<h3 class="text-center">{{subjectName1}}</h3>
+					<div class="col-sm-8">
+						<canvas id="bar" height="110" class="chart chart-bar" chart-data="data1" chart-labels="lables1" chart-options="options1" chart-dataset-override="chartcolor1"></canvas>
+					</div>
+						
+					<div class="col-sm-3 table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="danger">
+									<td>Skill Name</td>
+									<td>Completion Percentage</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in data1 track by $index" class="success">
+									<td>{{lables1[$index]}}</td>
+									<td>{{data}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- End Science Subject Graph -->
+					
+				<!-- Maths Subject Graph -->
+				<div class="row" ng-if="maths1">
+					<h3 class="text-center">{{subjectName2}}</h3>
+					<div class="col-sm-8">
+						<canvas id="bar" height="110" class="chart chart-bar" chart-data="data2" chart-labels="lables2" chart-options="options1" chart-dataset-override="chartcolor1"></canvas>
+					</div>
+						
+					<div class="col-sm-3 table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="danger">
+									<td>Skill Name</td>
+									<td>Completion Percentage</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in data2 track by $index" class="success">
+									<td>{{lables2[$index]}}</td>
+									<td>{{data}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- End Maths Subject Graph -->
+										
+				<!-- Gujarati Subject Graph -->
+				<div class="row" ng-if="gujarati1">
+					<h3 class="text-center">{{subjectName4}}</h3>
+					<div class="col-sm-8">
+						<canvas id="bar" height="110" class="chart chart-bar" chart-data="data4" chart-labels="lables4" chart-options="options1" chart-dataset-override="chartcolor1"></canvas>
+					</div>
+						
+					<div class="col-sm-3 table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="danger">
+									<td>Skill Name</td>
+									<td>Completion Percentage</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in data4 track by $index" class="success">
+									<td>{{lables4[$index]}}</td>
+									<td>{{data}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--End Gujarati Subject Graph -->
+					
+				<!-- English Subject Graph -->
+				<div class="row" ng-if="english1">
+					<h3 class="text-center">{{subjectName5}}</h3>
+					<div class="col-sm-8">
+						<canvas id="bar" height="110" class="chart chart-bar" chart-data="data5" chart-labels="lables5" chart-options="options1" chart-dataset-override="chartcolor1"></canvas>
+					</div>
+						
+					<div class="col-sm-3 table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="danger">
+									<td>Skill Name</td>
+									<td>Completion Percentage</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in data5 track by $index" class="success">
+									<td>{{lables5[$index]}}</td>
+									<td>{{data}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--End English Subject Graph -->
+				
+				<!-- SS Subject Graph -->
+				<div class="row" ng-if="ss1">
+					<h3 class="text-center">{{subjectName3}}</h3>
+					<div class="col-sm-12">
+						<canvas id="bar" height="110" class="chart chart-bar" chart-data="data3" chart-labels="lables3" chart-options="options1" chart-dataset-override="chartcolor1"></canvas>
+					</div>
+						
+					<div class="col-sm-12 table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="danger">
+									<td>Skill Name</td>
+									<td>Completion Percentage</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in data3 track by $index" class="success">
+									<td>{{lables3[$index]}}</td>
+									<td>{{data}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- End SS Subject Graph -->
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

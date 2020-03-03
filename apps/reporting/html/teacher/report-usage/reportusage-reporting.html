@@ -1,0 +1,22 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+			<button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+				<span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+			</button>
+		</div>
+		
+		<div class="col-md-6">
+			<center><h4>Teacher sLate Usage Reports ({{schoolname}})</h4></center>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<uib-tabset active="active">
+				<uib-tab index="0" heading="Total Report Usage"><teacherreport1-report></teacherreport1-report></uib-tab>
+			</uib-tabset>
+		</div>
+	</div>	
+</div>

@@ -1,0 +1,10 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid">
+	<cloud-report ng-if="reportserver_type == 'CLOUD_REPORTING'"></cloud-report>
+		
+	<server-report ng-if="reportserver_type == 'SCHOOL'"></server-report>
+	
+	<individualschool-report ng-if="schoolreport == 'individual'"></individualschool-report>
+	
+	<aggregationschool-report ng-if="schoolreport == 'aggregation'"></aggregationschool-report>
+</div>

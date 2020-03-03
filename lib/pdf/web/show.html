@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<!--<script script="viewer.js"></script>-->
+		<script>
+		function Test(){
+			var selBoxId = document.getElementById('selBox');
+			var selBoxVal = selBoxId.options[selBoxId.selectedIndex].value;
+			document.getElementById('iframeID').src="viewer.html?url='"+selBoxVal+"'";
+		}
+		</script>
+	</head>
+	<body>
+		<select style="height:3.8em;width:9.1em;" id="selBox" onchange="Test()">
+			<option>Select</option>
+			<option value="pdf/1.pdf">1</option>
+			<option value="pdf/2.pdf">2</option>
+			<option value="pdf/3.pdf">3</option>
+			<option value="pdf/4.pdf">4</option>
+		</select>
+		
+		<br><br>
+		<iframe src="" height="550px"width="1000px" id="iframeID">
+		  <p>Your browser does not support iframes.</p>
+		</iframe>
+
+	</body>
+</html>

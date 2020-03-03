@@ -1,0 +1,63 @@
+<style>
+    .logBtn {
+        cursor: pointer;
+        color: blue;
+        background: antiquewhite;
+        border-radius: 5px;
+        padding: 5px 5px 0px;
+        border: 1px solid black;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+<div id="TeacherBlock">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h1 class="panel-title">Teacher Details</h1></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="success">
+                        <td>Sr. No.</td>
+                        <td>User Id</td>
+                        <td>User Tag</td>
+                        <td>Teacher Name</td>
+                        <!-- <td>Gender</td> -->
+                        <!--<td>આચાર્ય છે?</td>-->
+                        <!-- <td>શિક્ષકના પ્રકાર</td> -->
+                        <!--<td>જુઓ</td>
+                        <td>ડિલીટ</td>-->
+                        <td>Action</td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="active" ng-repeat="(key,value) in teacherStoreData track by $index">
+                        <td>{{$index + 1}}</td>
+                        <td>{{value.user_detail.user_id}}</td>
+                        <td>{{value.user_detail.user_tag}}</td>
+                        <td>{{value.user_detail.first_name}} {{value.user_detail.last_name}}</td>
+                        <!-- <td ng-if="value.user_detail.gender == 'M'">પુરૂષ</td> <!--this td show if user is male --> 
+                        <!-- <td ng-if="value.user_detail.gender == 'F'">સ્ત્રી</td> <!--this td show if user is female --> 
+                        <!--<td ng-if="value.teacher_detail.is_headmaster == true">હા</td>
+                        &lt;!&ndash;this td show if user is principal &ndash;&gt;
+                        <td ng-if="value.teacher_detail.is_headmaster == false">ના</td>
+                        &lt;!&ndash;this td show if user is teacher&ndash;&gt;-->
+                        <!-- <td ng-if="value.teacher_detail.teacher_type == 'Upper'">{{upper}}</td> -->
+                        <!--this condition teacher type is upper -->
+                        <!-- <td ng-if="value.teacher_detail.teacher_type == 'Lower'">{{lower}}</td> -->
+                        <!--this condition teacher type is lower -->
+                        <!--<td><button type="button" class="btn btn-info">Edit</button></td>
+                        <td><button type="button" class="btn btn-danger">Delete</button></td>-->
+                        <td>
+                            <a class="logBtn" ng-click="forcefullyLout(key)">લોગ આઉટ</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

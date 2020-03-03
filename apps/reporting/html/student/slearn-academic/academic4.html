@@ -1,0 +1,71 @@
+<br>
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+			<div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+			<div class="panel-body">
+				<label>From Date</label>
+				<p class="input-group">
+					<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate4" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+						
+				<label>To Date</label>
+				<p class="input-group">
+					<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate4" is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats"/>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+						
+				<label style="margin-top:6px">Select Subject</label>
+				<select class="form-control" ng-model="sub_analysis4" ng-options="s.sub_id as s.sub_name.gj for s in subjectdata4" ng-change="getStandardData4(); std_analysis4 = undefined; div_analysis4 = undefined"></select>
+								
+				<label style="margin-top:6px">Standard</label>
+				<select class="form-control" ng-model="std_analysis4" ng-options="std for std in standardanalysis4" ng-change="getDivisionData4(); div_analysis4 = undefined"></select>
+						
+				<label style="margin-top:6px">Division</label>
+				<select class="form-control" ng-model="div_analysis4" ng-options="y.divid as y.divname.guj for y in divanalysis4"></select>
+						
+				<button type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadAcademic4Report()" ng-if="fromDate4 != undefined && toDate4 != undefined && sub_analysis4 != undefined && std_analysis4 != undefined && div_analysis4 != undefined">Submit</button>
+			</div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="col-md-9" ng-if="showAcademic4Report">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><h1 class="panel-title">Weak Concept analysis</h1></div>
+				<div class="panel-body table-responsive">
+					<h4 ng-if="errorMsg4"><center>{{errorMsg}}</center></h4>
+					<table class="table table-bordered" ng-if="showtable4">
+						<thead>
+							<tr class="danger">
+								<td>Sr. No.</td>
+								<td>Floor Level</td>
+								<td>Conceptroom Name</td>
+								<td>Weak concept of the selected classroom</td>
+								<!-- <td>Accuracy Percentage</td> -->
+								<td>No of Students whose concept is weak</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="conname in conceptname" class="success">
+								<td>{{$index+1}}</td>
+								<td>{{conname.data.floor_id}}</td>
+								<td>{{conname.conceptroom_name}}</td>
+								<td>{{conname.concept_name}}</td>
+								<!-- <td>{{conname.data.avg_concept_accuracy_percent| number:0}}%</td> -->
+								<td>{{conname.data.student_count}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

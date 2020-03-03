@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #d5d8dc;
+    /* background-color:lightgreen; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center center; */
+    /* background-attachment: fixed; */
+    /* -webkit-background-size: cover; */
+    /* -moz-background-size: cover; */
+    /* -o-background-size: cover; */
+    /* background-size: cover; */
+}
+
+video#myviddd {
+    width: 85% !important;
+}
+
+.unit_content {
+    margin-top: 10px;
+    background-color: rgba(113, 55, 39, 0.5);
+    border-radius: 10px;
+    width: 98%;
+}
+
+.header {
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.questiontext {
+    background-color: #D1F2EB;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+input[type=radio] {
+    transform: scale(2.0, 2.0);
+    -moz-transform: scale(2.0, 2.0);
+    -ms-transform: scale(2.0, 2.0);
+    -webkit-transform: scale(2.0, 2.0);
+    -o-transform: scale(2.0, 2.0);
+}
+
+.radioButton {
+    position: unset;
+    background: beige;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding-bottom: 0px;
+}
+
+.radioButton:hover {
+    cursor: pointer;
+    background: #b1f7b1;
+}
+
+span {
+    display: table-cell;
+    padding-left: 5px;
+}
+
+label {
+    width: -webkit-fill-available;
+}
+
+.radio label {
+    margin-bottom: -5px !important;
+    font-size: 20px;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pt-2{
+    padding-top: 1px;
+}
+

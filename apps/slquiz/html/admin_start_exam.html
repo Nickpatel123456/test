@@ -1,0 +1,335 @@
+<div class="row">
+    <div class="col-sm-12" style="margin-left:-5px;">
+        <table class="tableblock">
+            <tr class="rowblock" ng-repeat="(key, data) in examstdsubdata track by $index">
+                <td class="cellofblock">{{key}}</td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '1'">
+                    {{scienceandtechnology}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '2'"> {{maths}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '3'"> {{socialscience}}
+                    <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '4'"> {{gujarati}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '5'"> {{hindi}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '6'"> {{english}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '7'"> {{sanskrit}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '9'"> {{evs_1}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '10'"> {{evs_2}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+                <td class="cellofblock" ng-repeat="x in data track by $index" ng-if="x == '11'"> {{evs_3}} <br/>
+                    <button class="btn btn-warning subbutton" ng-click="viewExamDetails(key, x, '')">View Details
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="examdetailmodal" data-backdrop="static" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Standard: {{standard_details}}</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="text-center" ng-if="!loading">{{statusMsg}}</h3>
+                <center><img ng-src="{{imgurl}}" class="img-responsive" ng-if="!loading" width="60%"></center>
+                <div class="table-responsive">
+                    <table class="table table-bordered" ng-if="loading">
+                        <thead>
+                        <tr class="danger">
+                            <td align="center">Paper Id</td>
+                            <td align="center">Subject</td>
+                            <td align="center">Division</td>
+                            <td align="center">Quiz Status</td>
+                            <td align="center">Start Quiz</td>
+                            <td align="center">Stop Quiz</td>
+                            <td align="center">Complete Quiz</td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="exam in examStatus">
+                            <td align="center">{{slquizid}}</td>
+                            <td align="center">{{subject_details}}</td>
+                            <td align="center">{{exam.divname}}</td>
+                            <td align="center">{{exam.status[0].state}}</td>
+                            <td align="center">
+                                <center>
+                                    <div ng-if="exam.status[0].state == 'START'">
+                                        <button type="submit" class="btn btn-success" disabled>Start</button>
+                                    </div>
+                                    <div ng-if="exam.status[0].state == 'STOP' || exam.status.length == 0">
+                                        <button type="submit" class="btn btn-info"
+                                                ng-click="startSlQuiz(slquizid, exam.divid, exam.divname)">Start
+                                        </button>
+                                    </div>
+                                    <div ng-if="exam.status[0].state == 'FINISH'">
+                                        <button type="submit" class="btn btn-default" disabled>Start</button>
+                                    </div>
+                                </center>
+                            </td>
+                            <td align="center">
+                                <center>
+                                    <div ng-if="exam.status[0].state == 'START'">
+                                        <button type="submit" class="btn btn-danger"
+                                                ng-click="stopSlQuiz(slquizid, exam.divid, exam.divname)">Stop
+                                        </button>
+                                    </div>
+                                    <div ng-if="exam.status[0].state == 'STOP'">
+                                        <button type="submit" class="btn btn-default" disabled>Stop</button>
+                                    </div>
+                                    <div ng-if="exam.status[0].state == 'FINISH'">
+                                        <button type="submit" class="btn btn-default" disabled>Stop</button>
+                                    </div>
+                                </center>
+                            </td>
+                            <td align="center">
+                                <center>
+                                    <div ng-if="exam.status[0].state == 'START'">
+                                        <button type="submit" class="btn btn-default" id="slquizcompletebutton"
+                                                ng-click="completeSlQuiz(slquizid, exam.divid, exam.divname)">Complete
+                                        </button>
+                                    </div>
+                                    <div ng-if="exam.status[0].state == 'STOP'">
+                                        <button type="submit" class="btn btn-default" disabled>Complete</button>
+                                    </div>
+                                    <div ng-if="exam.status[0].state == 'FINISH'">
+                                        <button type="submit" class="btn btn-default" disabled>Complete</button>
+                                    </div>
+                                </center>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- for div 1 this below table code is use single division table -->
+<!--<tr class="warning">
+    <td align="center">{{slquizid}}</td>
+    <td align="center">{{subject_details}}</td>
+    <td align="center">{{divisionresponse[1].guj}}</td>
+    <td align="center">{{slquizdetails1[0].state}}</td>
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails1[0].state == 'STOP' || slquizdetails1.length == 0">
+                <button type="submit" class="btn btn-info" id="slquizstartbutton"
+                        ng-click="startSlQuiz(slquizid,'1')">Start
+                </button>
+            </div>
+            <div ng-if="slquizdetails1[0].state == 'START'">
+                <button type="submit" class="btn btn-default" id="slquizstartbutton" disabled>
+                    Start
+                </button>
+            </div>
+            <div ng-if="slquizdetails1[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizstartbutton" disabled>
+                    Start
+                </button>
+            </div>
+        </center>
+    </td>
+
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails1[0].state == 'START'">
+                <button type="submit" class="btn btn-danger" id="slquizstopbutton"
+                        ng-click="stopSlQuiz(slquizid,'1')">Stop
+                </button>
+            </div>
+            <div ng-if="slquizdetails1[0].state == 'STOP'">
+                <button type="submit" class="btn btn-default" id="slquizstopbutton" disabled>Stop
+                </button>
+            </div>
+            <div ng-if="slquizdetails1[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizstopbutton" disabled>Stop
+                </button>
+            </div>
+        </center>
+    </td>
+
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails1[0].state == 'START'">
+                <button type="submit" class="btn btn-default" id="slquizcompletebutton" disabled>
+                    Complete
+                </button>
+            </div>
+            <div ng-if="slquizdetails1[0].state == 'STOP'">
+                <button type="submit" class="btn btn-success" id="slquizcompletebutton"
+                        ng-click="completeSlQuiz(slquizid,'1')">Complete
+                </button>
+            </div>
+            <div ng-if="slquizdetails1[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizcompletebutton" disabled>
+                    Complete
+                </button>
+            </div>
+        </center>
+    </td>
+</tr>
+
+&lt;!&ndash; for div 2 &ndash;&gt;
+<tr class="warning">
+    <td align="center">{{slquizid}}</td>
+    <td align="center">{{subject_details}}</td>
+    <td align="center">{{divisionresponse[2].guj}}</td>
+    <td align="center">{{slquizdetails2[0].state}}</td>
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails2[0].state == 'START'">
+                <button type="submit" class="btn btn-default" id="slquizstartbutton" disabled>
+                    Start
+                </button>
+            </div>
+            <div ng-if="slquizdetails2[0].state == 'STOP' || slquizdetails2.length == 0">
+                <button type="submit" class="btn btn-info" id="slquizstartbutton"
+                        ng-click="startSlQuiz(slquizid,'2')">Start
+                </button>
+            </div>
+            <div ng-if="slquizdetails2[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizstartbutton" disabled>
+                    Start
+                </button>
+            </div>
+        </center>
+    </td>
+
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails2[0].state == 'START'">
+                <button type="submit" class="btn btn-danger" id="slquizstopbutton"
+                        ng-click="stopSlQuiz(slquizid,'2')">Stop
+                </button>
+            </div>
+            <div ng-if="slquizdetails2[0].state == 'STOP'">
+                <button type="submit" class="btn btn-default" id="slquizstopbutton" disabled>Stop
+                </button>
+            </div>
+            <div ng-if="slquizdetails2[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizstopbutton" disabled>Stop
+                </button>
+            </div>
+        </center>
+    </td>
+
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails2[0].state == 'START'">
+                <button type="submit" class="btn btn-default" id="slquizcompletebutton" disabled>
+                    Complete
+                </button>
+            </div>
+            <div ng-if="slquizdetails2[0].state == 'STOP'">
+                <button type="submit" class="btn btn-success" id="slquizcompletebutton"
+                        ng-click="completeSlQuiz(slquizid,'2')">Complete
+                </button>
+            </div>
+            <div ng-if="slquizdetails2[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizcompletebutton" disabled>
+                    Complete
+                </button>
+            </div>
+        </center>
+    </td>
+</tr>
+
+&lt;!&ndash; for div 3 &ndash;&gt;
+<tr class="warning">
+    <td align="center">{{slquizid}}</td>
+    <td align="center">{{subject_details}}</td>
+    <td align="center">{{divisionresponse[3].guj}}</td>
+    <td align="center">{{slquizdetails3[0].state}}</td>
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails3[0].state == 'START'">
+                <button type="submit" class="btn btn-default" id="slquizstartbutton" disabled>
+                    Start
+                </button>
+            </div>
+            <div ng-if="slquizdetails3[0].state == 'STOP' || slquizdetails3.length == 0">
+                <button type="submit" class="btn btn-info" id="slquizstartbutton"
+                        ng-click="startSlQuiz(slquizid,'3')">Start
+                </button>
+            </div>
+            <div ng-if="slquizdetails3[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizstartbutton" disabled>
+                    Start
+                </button>
+            </div>
+        </center>
+    </td>
+
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails3[0].state == 'START'">
+                <button type="submit" class="btn btn-danger" id="slquizstopbutton"
+                        ng-click="stopSlQuiz(slquizid,'3')">Stop
+                </button>
+            </div>
+            <div ng-if="slquizdetails3[0].state == 'STOP'">
+                <button type="submit" class="btn btn-default" id="slquizstopbutton" disabled>Stop
+                </button>
+            </div>
+            <div ng-if="slquizdetails3[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizstopbutton" disabled>Stop
+                </button>
+            </div>
+        </center>
+    </td>
+
+    <td align="center">
+        <center>
+            <div ng-if="slquizdetails3[0].state == 'START'">
+                <button type="submit" class="btn btn-default" id="slquizcompletebutton" disabled>
+                    Complete
+                </button>
+            </div>
+            <div ng-if="slquizdetails3[0].state == 'STOP'">
+                <button type="submit" class="btn btn-success" id="slquizcompletebutton"
+                        ng-click="completeSlQuiz(slquizid,'3')">Complete
+                </button>
+            </div>
+            <div ng-if="slquizdetails3[0].state == 'FINISH'">
+                <button type="submit" class="btn btn-default" id="slquizcompletebutton" disabled>
+                    Complete
+                </button>
+            </div>
+        </center>
+    </td>
+</tr>-->

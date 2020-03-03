@@ -1,0 +1,338 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    max-width: initial;
+    background-color: #2DDCA7;
+}
+
+.me {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background: red;
+}
+
+
+span {
+    display: table-cell;
+}
+
+.pb-2 {
+    padding-bottom: 2px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.blockage1 {
+    position: absolute;
+    width: 2vw;
+    height: 20vh;
+    left: 8vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage2 {
+    position: absolute;
+    width: 22vw;
+    height: 4vh;
+    left: 8vw;
+    top: 31vh;
+    color: blue;
+    background: red;
+}
+
+.blockage3 {
+    position: absolute;
+    width: 2vw;
+    height: 31vh;
+    left: 28vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage4 {
+    position: absolute;
+    width: 40vw;
+    height: 4vh;
+    top: 53vh;
+    color: blue;
+    background: red;
+}
+
+.blockage5 {
+    position: absolute;
+    width: 2vw;
+    height: 25vh;
+    top: 72vh;
+    left: 15vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage6 {
+    position: absolute;
+    width: 15vw;
+    height: 4vh;
+    left: 23vw;
+    top: 75vh;
+    color: blue;
+    background: red;
+}
+
+.blockage7 {
+    position: absolute;
+    width: 2vw;
+    height: 26vh;
+    top: 53vh;
+    left: 38vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage8 {
+    position: absolute;
+    width: 17vw;
+    height: 4vh;
+    left: 0vw;
+    top: 70vh;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage9 {
+    position: absolute;
+    width: 2vw;
+    height: 35vh;
+    top: 55vh;
+    left: 49vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage10 {
+    position: absolute;
+    width: 2vw;
+    height: 25vh;
+    top: 9vh;
+    left: 49vw;
+    color: blue;
+    background: red;
+}
+
+.blockage11 {
+    position: absolute;
+    width: 12vw;
+    height: 4vh;
+    left: 50vw;
+    top: 30vh;
+    color: blue;
+    background: red;
+}
+
+.blockage12 {
+    position: absolute;
+    width: 2vw;
+    height: 40vh;
+    top: 9vh;
+    left: 60vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage13 {
+    position: absolute;
+    width: 12vw;
+    height: 4vh;
+    left: 60vw;
+    top: 82vh;
+    color: blue;
+    background: red;
+}
+
+.blockage14 {
+    position: absolute;
+    width: 2vw;
+    height: 73vh;
+    top: 9vh;
+    left: 70vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage15 {
+    position: absolute;
+    width: 28vw;
+    height: 4vh;
+    left: 70vw;
+    top: 6vh;
+    color: blue;
+    background: red;
+}
+
+.blockage16 {
+    position: absolute;
+    width: 2vw;
+    height: 68vh;
+    top: 30vh;
+    left: 85vw;
+    color: blue;
+    background: #0080FF;
+}
+
+.blockage17 {
+    position: absolute;
+    width: 6vw;
+    height: 4vh;
+    left: 85vw;
+    top: 28vh;
+    color: blue;
+    background: #0080FF;
+}
+
+.button {
+    position: absolute;
+    width: 2em;
+    top: 32em;
+    left: 5;
+    color: black;
+}
+
+.questiontext {
+    background-color: #F0E68C;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.optiontext {
+    background-color: #cd783f61;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    overflow: overlay;
+    cursor: pointer;
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+.instructionText {
+    background-color: #F0E68C;
+    border-radius: 5px;
+    padding: 2%;
+    font-size: 130%;
+    margin: 1%;
+    text-align: center;
+}
+
+.destinationreached {
+    position: absolute;
+    top: 75vh;
+    left: 88vw;
+}
+
+.nails {
+    position: absolute;
+    top: 40vh;
+    left: 14vw;
+    width: 7%;
+}
+
+.compass {
+    position: absolute;
+    top: 60vh;
+    left: 30vw;
+    width: 7%;
+}
+
+.barmagnet {
+    position: absolute;
+    top: 15vh;
+    left: 52vw;
+    width: 7%;
+}
+
+.magnetic {
+    position: absolute;
+    top: 87vh;
+    left: 65vw;
+    width: 7%;
+}
+
+.allmagnetic {
+    position: absolute;
+    top: 60vh;
+    left: 75vw;
+    width: 7%;
+}
+
+.iron {
+    position: absolute;
+    top: 25vh;
+    left: 93vw;
+    width: 7%;
+}
+
+.backgroundColor {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+.modal-heade {
+    background-color: #BDBDBD;
+    color: white;
+}
+
+.modal-foote {
+    background-color: #BDBDBD;
+    color: white;
+}
+
+.buttonup {
+    position: absolute;
+    top: 77vh;
+    left: 5vw;
+    color: white;
+}
+
+.buttondown {
+    position: absolute;
+    top: 88vh;
+    left: 5vw;
+    color: white;
+}
+
+.buttonleft {
+    position: absolute;
+    top: 83vh;
+    left: 2vw;
+    color: white;
+}
+
+.buttonright {
+    position: absolute;
+    top: 83vh;
+    left: 8vw;
+    left: 8vw;
+    color: white;
+}
+
+.header {
+    background-color: #5cb85c;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+

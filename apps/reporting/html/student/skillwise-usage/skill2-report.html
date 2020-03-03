@@ -1,0 +1,157 @@
+<br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Selection Box</div>
+				<div class="panel-body">	
+					<div class="row">
+						<div class="col-sm-2">
+							<label>Standard</label>
+							<select class="form-control" ng-model="standarddata2" ng-options="std.id for std in standard_details2" ng-change="getdivisionDetails2(); divisiondata2 = undefined"></select>
+						</div>
+						
+						<div class="col-sm-2">
+							<label>Division</label>
+							<select class="form-control" ng-model="divisiondata2" ng-options="div.id as div.name.guj for div in division_details2"></select>
+						</div>
+						
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-primary" style="margin-top:24px" ng-click="loadskill2report()" ng-if="standarddata2 != undefined && divisiondata2 != undefined">Submit</button>
+						</div>
+					</div>
+					
+					<!-- Science Subject Graph -->
+					<div class="row" ng-if="science2">
+						<h3 class="text-center">{{subjectName6}}</h3>
+						<div class="col-sm-8">
+							<canvas id="bar" height="110" class="chart chart-bar" chart-data="data6" chart-labels="lables6" chart-options="options2" chart-dataset-override="chartcolor2"></canvas>
+						</div>
+						
+						<div class="col-sm-3 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="danger">
+										<td>Skill Name</td>
+										<td>Completion Percentage</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in data6 track by $index" class="success">
+										<td>{{lables6[$index]}}</td>
+										<td>{{data}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- End Science Subject Graph -->
+					
+					<!-- Maths Subject Graph -->
+					<div class="row" ng-if="maths2">
+						<h3 class="text-center">{{subjectName7}}</h3>
+						<div class="col-sm-8">
+							<canvas id="bar" height="110" class="chart chart-bar" chart-data="data7" chart-labels="lables7" chart-options="options2" chart-dataset-override="chartcolor2"></canvas>
+						</div>
+						
+						<div class="col-sm-3 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="danger">
+										<td>Skill Name</td>
+										<td>Completion Percentage</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in data7 track by $index" class="success">
+										<td>{{lables7[$index]}}</td>
+										<td>{{data}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- End Maths Subject Graph -->
+					
+					<!-- Gujarati Subject Graph -->
+					<div class="row" ng-if="gujarati2">
+						<h3 class="text-center">{{subjectName9}}</h3>
+						<div class="col-sm-8">
+							<canvas id="bar" height="110" class="chart chart-bar" chart-data="data9" chart-labels="lables9" chart-options="options2" chart-dataset-override="chartcolor2"></canvas>
+						</div>
+						
+						<div class="col-sm-3 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="danger">
+										<td>Skill Name</td>
+										<td>Completion Percentage</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in data9 track by $index" class="success">
+										<td>{{lables9[$index]}}</td>
+										<td>{{data}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--End Gujarati Subject Graph -->
+					
+					<!-- English Subject Graph -->
+					<div class="row" ng-if="english2">
+						<h3 class="text-center">{{subjectName10}}</h3>
+						<div class="col-sm-8">
+							<canvas id="bar" height="110" class="chart chart-bar" chart-data="data10" chart-labels="lables10" chart-options="options2" chart-dataset-override="chartcolor2"></canvas>
+						</div>
+						
+						<div class="col-sm-3 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="danger">
+										<td>Skill Name</td>
+										<td>Completion Percentage</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in data10 track by $index" class="success">
+										<td>{{lables10[$index]}}</td>
+										<td>{{data}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--End English Subject Graph -->
+					
+					<!-- SS Subject Graph -->
+					<div class="row" ng-if="ss2">
+						<h3 class="text-center">{{subjectName8}}</h3>
+						<div class="col-sm-12">
+							<canvas id="bar" height="110" class="chart chart-bar" chart-data="data8" chart-labels="lables8" chart-options="options2" chart-dataset-override="chartcolor2"></canvas>
+						</div>
+						
+						<div class="col-sm-12 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="danger">
+										<td>Skill Name</td>
+										<td>Completion Percentage</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in data8 track by $index" class="success">
+										<td>{{lables8[$index]}}</td>
+										<td>{{data}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- End SS Subject Graph -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,82 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label>From Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate5"
+                               is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open1()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>To Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate5"
+                               is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open2()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>Standard</label>
+                    <select class="form-control" ng-model="std_analysis5" ng-options="std for std in standardanalysis5"
+                            ng-change="getsubjectdata5(); sub_analysis5 = undefined; div_analysis5 = undefined"></select>
+
+                    <label style="margin-top:6px">Subject</label>
+                    <select class="form-control" ng-model="sub_analysis5"
+                            ng-options="s.sub_id as s.sub_name.gj for s in subjectdata5"
+                            ng-change="getDivisionData5(); div_analysis5 = undefined"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="div_analysis5"
+                            ng-options="y.divid as y.divname.guj for y in divanalysis5"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadslate5report()"
+                            ng-if="fromDate5 != undefined && toDate5 != undefined && sub_analysis5 != undefined && std_analysis5 != undefined && div_analysis5 != undefined">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showslate5table || showerrromsg5">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Student Wise Usage</h1></div>
+                <div class="panel-body">
+                    <h4 ng-if="showerrromsg5">{{errorMsg}}</h4>
+                    <div class="table-responsive" ng-if="showslate5table">
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ui-jq="dataTable"
+                               ui-options="tableOption5" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Student Name</th>
+                                <th>Usage In HH:MM:SS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="usage in studentusagedata">
+                                <td>{{$index+1}}</td>
+                                <td>{{usage.name}}</td>
+                                <td>{{usage.duration | formatTimer}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

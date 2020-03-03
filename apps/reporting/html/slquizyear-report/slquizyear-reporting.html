@@ -1,0 +1,27 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid">
+	<button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+		<span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+	</button>
+			
+	<div class="panel panel-primary">
+		<div class="panel-heading">Select to load Year wise Report PDF ({{schoolname}})</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-xs-2 col-md-2">
+					<select class="form-control" ng-model="usermanualdata" ng-options="manual.pdfname as manual.name for manual in usermanuladetails" required>
+						<option value="" selected disabled>પસંદ કરો</option>
+					</select>
+					
+					<button type="submit" class="btn btn-info btn-block" ng-if="usermanualdata!= undefined" ng-click="showusermanual()" style="margin-top:10px">Submit</button>
+				</div>
+				
+				<div class="col-xs-10 col-md-10 embed-responsive embed-responsive-16by9" style="padding-bottom:45%" ng-if="usermanualdata!= undefined">
+					<iframe src="" id="usermanual" class="embed-responsive-item">
+						<p>Your browser does not support iframes.</p>
+					</iframe>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

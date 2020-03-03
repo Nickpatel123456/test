@@ -1,0 +1,38 @@
+<br/>
+<form name="addUserForm" ng-submit="checkAddUserFormValid(addUserForm.$valid)" novalidate>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <select class="form-control" id="addselectrole" ng-model="AddUser.RoleType" required>
+                <option value="" selected disabled>તમે કોણ છો</option>
+                <option ng-repeat="role in userRoleArray" value="{{role.roleType}}" ng-hide="role.roleType == 'admin'">
+                    {{role.roleName}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <!-- Start of Add Admin block -->
+    <add-admin ng-if="AddUser.RoleType == 'reviewer'"></add-admin>
+    <!-- End of Admin Block -->
+
+    <!-- Start of Student Block -->
+    <add-student ng-if="AddUser.RoleType== 'student' || AddUser.RoleType == 'dummy_student'"></add-student>
+    <!-- End of Student Block -->
+
+    <!-- Start of Teacher Block -->
+    <add-teacher ng-if="AddUser.RoleType == 'teacher' || AddUser.RoleType == 'headmaster'"></add-teacher>
+    <!-- End of Teacher Block -->
+
+    <!-- Start of Guest Block -->
+    <!-- <add-guest ng-if="AddUser.RoleType.roleType == 'Guest'"> </add-guest> -->
+    <!-- End of Guest Block -->
+
+    <div class="row" ng-show="AddUser.RoleType != null">
+        <div class="col-xs-5 col-md-4"></div>
+        <div class="col-xs-6 col-md-4">
+            <br/>
+            <button type="submit" class="btn btn-info btn-lg btn-block" style="padding-top:9px;">સબમિટ</button>
+            <!-- this submit button use form ng-submit function call -->
+        </div>
+    </div>
+</form>

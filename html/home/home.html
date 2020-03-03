@@ -1,0 +1,41 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <h3 style="text-align:center">{{userfullname}}</h3>
+    <ul class="ul" id="container">
+        <li ng-if="productNo == 1" ng-click="go('/slearn_subject')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product1.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 2" ng-click="launchSlate()"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product2.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 3" ng-click="go('/slquiz')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product3.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 4" ng-click="go('/reporting')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product4.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 5" ng-click="go('/user_manual')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product5.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 6" ng-click="go('/review')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product6.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 7" ng-click="go('/monitor')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product7.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="productNo == 8" ng-click="go('/administration')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product8.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+
+        <li ng-if="menuslate == 9" ng-click="go('/slquizadministration')"><a href="" class="round green"><img
+                ng-src="{{baseLinkForScope+'images/product9.png'}}" class="img-responsive"/><span class="round">{{productname}}</span></a>
+        </li>
+    </ul>
+</div>

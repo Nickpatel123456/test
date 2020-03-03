@@ -1,0 +1,65 @@
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Total School Usage</h1></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label>From Date</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                       ng-model="fromDate1" is-open="popup1.opened" datepicker-options="dateOptions"
+                                       close-text="Close" alt-input-formats="altInputFormats"/>
+                                <span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="open1()"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+							</span>
+                            </p>
+
+                            <label>To Date</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                       ng-model="toDate1" is-open="popup2.opened" datepicker-options="dateOptions"
+                                       close-text="Close" alt-input-formats="altInputFormats"/>
+                                <span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="open2()"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+							</span>
+                            </p>
+
+                            <button type="button" class="btn btn-primary" style="margin-top:6px"
+                                    ng-click="loadslearn1report()"
+                                    ng-if="fromDate1 != undefined && toDate1 != undefined">Submit
+                            </button>
+                        </div>
+
+                        <div class="col-md-7">
+                            <canvas id="bar" height="270px" class="chart chart-bar" chart-data="data1"
+                                    chart-labels="lables1" chart-options="options1" chart-series="displayProductname"
+                                    chart-dataset-override="chartcolor1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-6"> -->
+    <!-- <div class="panel-group"> -->
+    <!-- <div class="panel panel-primary"> -->
+    <!-- <div class="panel-heading">Current Month sLearn Subject Usage Reports(%)</div> -->
+    <!-- <div class="panel-body"> -->
+    <!-- <div class="loading" ng-if="showCompletionGraph == false"> -->
+    <!-- <div class="loading-bar"></div> -->
+    <!-- <div class="loading-bar"></div> -->
+    <!-- <div class="loading-bar"></div> -->
+    <!-- <div class="loading-bar"></div> -->
+    <!-- </div> -->
+    <!-- <canvas id="bar" height="150px" class="chart chart-bar" chart-data="data11" chart-labels="lables11" chart-options="options11" chart-dataset-override="chartcolor11" ng-if="showCompletionGraph == true"></canvas> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+</div>

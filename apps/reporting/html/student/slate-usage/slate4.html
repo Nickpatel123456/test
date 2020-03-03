@@ -1,0 +1,53 @@
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <label>From Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate4"
+                               is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open1()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>To Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate4"
+                               is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open2()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>Standard</label>
+                    <select class="form-control" ng-model="standard_data"
+                            ng-options="std for std in standarddata"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px" ng-click="loadslate4report()"
+                            ng-if="fromDate4 != undefined && toDate4 != undefined && standard_data != undefined">Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showgraphPanel4">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Standard v/s Subject Usage</h1></div>
+                <div class="panel-body">
+                    <canvas id="bar" height="110" class="chart chart-bar" chart-data="data4" chart-labels="lables4"
+                            chart-options="options4" chart-dataset-override="chartcolor4"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

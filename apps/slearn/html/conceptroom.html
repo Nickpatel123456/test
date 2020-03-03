@@ -1,0 +1,102 @@
+<nav-bar></nav-bar>
+<style>
+    .row.display-flex {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row.display-flex > .columns {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: -15px;
+    }
+
+    .panel {
+        height: 100%;
+        background-color: whitesmoke;
+    }
+
+    img {
+        float: left;
+        margin-right: 20px;
+        border: 1px solid black;
+        padding: 2px;
+    }
+
+    .percenatge {
+        padding: 5px;
+        padding-bottom: 2px;
+        display: inline;
+        border-radius: 5px;
+        margin-left: -10px;
+    }
+
+    .completeFloor {
+        background: lightgreen;
+    }
+
+    .currentFloor {
+        background: #F4D03F;
+    }
+
+    .closeFloor {
+        background: #ff000082;
+    }
+
+    .text-height {
+        line-height: 1.4;
+        margin-top: -17px;
+        margin-left: -10px;
+    }
+
+    .backGrd {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+        margin-top: -9px;
+    }
+
+    .span {
+        display: table-cell;
+    }
+
+    h4 {
+        margin-bottom: 5px;
+    }
+</style>
+<div class="container-fluid backGrd">
+    <div class="row">
+        <div class="col-xs-5 pull-left">
+            <button type="submit" class="btn btn-danger pull-left" ng-click="goBacksLearnFloor()"><span
+                    class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+        <div class="col-xs-6">
+            <h4 class="btn btn-info" style="margin: 0px;">{{floorText + " " +selectedFloor}}</h4>
+        </div>
+    </div>
+
+    <div class="row display-flex" style="margin-top: 5px">
+        <div class="col-xs-6 col-md-4 columns" ng-repeat="(key,value) in conceptrooms | orderBy:'order'"
+             ng-click="goToConceptsPage(value.conceptroom_id, value.status, value.order)">
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding: 6px;" ng-class="{'currentFloor':value.status == 'Open'}">
+                    <span class="span">
+                        <img style="max-width: none;" class="img-responsive" ng-src="{{opendoor}}"
+                             ng-if="value.status == 'Open' || value.status == 'Complete'"/>
+                        <img style="max-width: none;" class="img-responsive" ng-src="{{closedoor}}"
+                             ng-if="value.status == 'Close'"/></span>
+                    <span class="span" style="padding-top: 20px;">
+                        <h4 class="text-height">{{value.name}}</h4>
+                        <p class="percenatge" ng-class="{'completeFloor':value.status == 'Open'}"
+                           ng-if="value.status == 'Open'">{{per_complete + conceptpercentage1}}%</p>
+                        <p class="percenatge" ng-class="{'completeFloor':value.status == 'Complete'}"
+                           ng-if="value.status == 'Complete'">{{per_complete}} 100%</p>
+                        <p class="percenatge" ng-class="{'closeFloor':value.status == 'Close'}"
+                           ng-if="value.status == 'Close'">{{per_complete}} 0%</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

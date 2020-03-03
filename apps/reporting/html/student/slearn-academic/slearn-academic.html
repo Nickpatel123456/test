@@ -1,0 +1,27 @@
+<nav-bar> </nav-bar>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+			<button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+				<span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+			</button>
+		</div>
+		
+		<div class="col-md-6">
+			<center><h4>Student sLearn Academic Reports ({{schoolname}})</h4></center>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<uib-tabset active="active">
+				<uib-tab index="0" heading="School Floor Level analysis"><academic1-report></academic1-report></uib-tab>
+				<!-- <uib-tab index="1" heading="Activity Attempt analysis"><academic2-report></academic2-report></uib-tab> -->
+				<uib-tab index="1" heading="Student Wise Details"><academic3-report></academic3-report></uib-tab>
+				<!-- <uib-tab index="3" heading="Weak Concept analysis"><academic4-report></academic4-report></uib-tab> -->
+				<uib-tab index="2" heading="Student Wise Concept analysis"><academic5-report></academic5-report></uib-tab>
+				<uib-tab index="3" heading="Aggregate Skill Completion Report"><academic6-report></academic6-report></uib-tab>
+			</uib-tabset>
+		</div>
+	</div>	
+</div>

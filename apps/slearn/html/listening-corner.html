@@ -1,0 +1,132 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-danger" ng-click="back()">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                {{backBtnName}}
+            </button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 5px; display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="col-sm-2 imgcontainer" ng-repeat="floor in listeningValue"
+             ng-click="loadActivityRemedial(floor)">
+            <img ng-src="{{baseImagePath+'apps/slearn/images/backimage.png'}}" alt="Snow" style="width:163px;">
+            <div class="centered">{{floor.name}}</div>
+        </div>
+    </div>
+
+    <div class="row well" ng-if="showRemedial === false">
+        <div class="col-md-12">
+            <h4 class="text-center" style="color:red">No Data Found.</h4>
+        </div>
+    </div>
+
+    <div class="row well" ng-if="showRemedial">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"
+             style="float:left; text-align: center">
+            <div class="alert alert-info" style="font-weight: bold; font-size: 16px;">
+                {{levelData.name}} Activity List
+            </div>
+            <div class="sidebar-nav" style="margin-top: -20px;text-align: center">
+                <ul class="list-group list-group-flush" id="nav">
+                    <li class="list-group-item" ng-repeat="activity in actvityList track by $index"
+                        style="text-align: left" ng-class="{'selectList':  $index === selectActivity}"
+                        ng-click="playRemedialVideo(activity,$index)"><span class="liItem">{{$index + 1}}</span>
+                        {{activity.activity_name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-8" ng-if="showVideoPlayer" style="background-color: azure;padding: 5px">
+            <video id="my-video" class="video-js  vjs-default-skin" width="640px" height="267px" controls
+                   controlsList="nodownload"
+                   style="height: 62vh; width: 65vw; margin-left: 5px; background: none;"
+                   data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
+                   controls autoplay="true"
+                   ng-src="{{remedial_video_url| trustUrl}}">
+                <!-- <source src="MY_VIDEO.mp4" type='video/mp4'>
+                 <source src="MY_VIDEO.webm" type='video/webm'>-->
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+    </div>
+
+    <div class="row well" ng-if="slateRemedial">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation" style="float:left; text-align: center">
+            <div style="font-weight: bold; font-size: 16px;">
+                Select Part
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" ng-click="setSemester('1')">Part 1</button>
+                    <button type="button" class="btn btn-success" ng-click="setSemester('2')">Part 2</button>
+                </div>
+            </div>
+            <div class="alert alert-info" style="font-weight: bold; font-size: 16px;">
+                {{levelData.name}} Activities / Part {{setSem}}
+            </div>
+            <div class="sidebar-nav" style="margin-top: -20px;text-align: center">
+                <ul class="list-group list-group-flush" id="nav">
+                    <li class="list-group-item" ng-repeat="chap in slateChapName track by $index"
+                        style="text-align: left" ng-class="{'selectList':  $index === selectActivity}"
+                        ng-click="getSlateVideoList(chap,$index)"><span class="liItem">{{chap.id}}</span>
+                        {{chap.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-8" ng-if="setSem != 0 && slateVideoList.length !== 0">
+            <div class="row"
+                 style="margin-top: 5px; display: flex; flex-wrap: wrap; justify-content: center; background: burlywood; margin-top: 36px;"
+                 ng-if="selectVideo === 0 || selectVideo !== 0">
+                <div class="col-sm-2" ng-repeat="video in slateVideoList track by $index"
+                     style="display: grid; flex-wrap: wrap; padding: 10px; margin: 2px; cursor: pointer; justify-content: center;"
+                     ng-class="{'selectVideo': selectVideo == $index + 1}"
+                     ng-click="playSlateVideo(video, $index)">
+                    <img ng-src="{{$scope.imgurl = baselinkforfiles+ 'images/video.png'}}" class="img-responsive"
+                         width="80px"/>
+                    <div style="margin-left: 20px">{{video.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Launch Modal -->
+<div class="modal fade" id="vidoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="stopVideo()">&times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="my-video" class="video-js  vjs-default-skin" controls
+                       controlsList="nodownload"
+                       style="height: 100%; width: 100%; background: none;"
+                       data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
+                       controls autoplay="true"
+                       ng-src="{{slate_video_url| trustUrl}}" ng-if="videoStop">
+                    <!-- <source src="MY_VIDEO.mp4" type='video/mp4'>
+                     <source src="MY_VIDEO.webm" type='video/webm'>-->
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of launch modal -->
+
+<style>
+    .selectVideo {
+        background-color: #d6861e;;
+        color: white;
+    }
+</style>

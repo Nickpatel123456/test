@@ -1,0 +1,78 @@
+<div class="container-fluid" id="showallproduct" ng-show="displayProduct == false">
+    <div class="row" ng-if="productruuning && selectedproduct == 0">
+        <div class="col-md-12 col-xs-12 text-center serverinfo">sLEdStudio Version- {{version_Name}} running on :
+            {{serverdetails}}
+        </div>
+    </div>
+
+    <div class="row" ng-if="selectedproduct == 1">
+        <div class="col-md-12 col-xs-12">
+            <a href="" class="forgot-password pull-right" ng-if="isAndroid" ng-click="toggleKeyBoard()">Text</a>
+            <a href="" class="forgot-password pull-right" ng-if="!isAndroid" ng-click="toggleKeyBoard()">Number</a>
+        </div>
+    </div>
+
+    <div class="row productbackgrounholder" ng-show="selectedproduct == -1">
+        <div class="col-lg-12">
+            <div class="alert alert-warning logoutDiv text-center">
+                <strong style="font-size:120%">{{instruction}}</strong>
+                <img class="img-responsive" ng-src="{{baseLinkForScope+'images/loading.gif'}}"
+                     ng-show="sessionchecking == 1"/>
+                <br>
+                <button class="btn btn-danger btn-lg" ng-show="sessionchecking == 0" ng-click="closeSession()">લૉગ આઉટ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-flex centerdiv" ng-show="selectedproduct == 0" style="margin-top:30px">
+        <div class="col-md-3 col-sm-4 col-xs-6 product" ng-repeat="product in productDetails"
+             ng-click="loginSelectedProduct(product)">
+            <div class="contentlogin colour-5">
+                <center>
+                    <img class="img-responsive" ng-src="{{baseLinkForScope+'images/product'+product.key+'.png'}}"/>
+                    <!-- <img class="img-responsive" ng-src="{{baseLinkForScope+'images/product'+product.key+'.png'}}" ng-click="launchSlate(product.key)" ng-if="product.key == '2'"/> -->
+                    <hr style="margin-top: 0px;border: none;"/>
+                    <h4 class="textanimation"> {{product.details.name.guj}} ({{product.details.name.en}})</h4>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" ng-show="selectedproduct == 1">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <!-- <img id="profile-img" class="profile-img-card" style="border-radius:0%"
+                  ng-src="{{baseLinkForScope+productpath}}"/>-->
+            <p id="profile-name" class="profile-name-card">{{productname}}</p>
+            <form class="form-signin" name="loginForm" ng-submit="loginForm.$valid && tryLoggingIn()" novalidate>
+                <span id="reauth-email" class="reauth-email"></span>
+                <input key-board-directive is-android="isAndroid" id="inputEmail" class="form-control"
+                       placeholder="વપરાશકર્તા નામ" ng-model="loginDetailsOfUser.Username" required
+                       autofocus>
+                <input ng-if="!isAndroid" type="{{isAndroid?'number':'password'}}" id="inputPassword"
+                       class="form-control" placeholder="પાસવર્ડ"
+                       ng-model="loginDetailsOfUser.Password" required>
+                <button class="btn1 btn-lg btn-primary btn-block btn-signin" type="submit"
+                        ng-disabled="loginForm.$invalid">Sign in
+                </button>
+            </form><!-- /form -->
+            <a href="" class="forgot-password" ng-click="showProductCatlog()">Back</a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="footer" ng-show="selectedproduct == 0">
+                <p>&#x24B8; 2019 by schoolsLENS Solutions Pvt. Ltd.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" id="hideallproduct" ng-show="displayProduct == true">
+    <marquee behavior="alternate">
+        <h1 style="margin-top:40vh;text-shadow: 2px 2px 5px red;color:white;">Welcome to schoolsLENS Solutions Pvt.
+            Ltd.</h1>
+    </marquee>
+</div>

@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-6 col-xs-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="questiontext" ng-if="slquizQuestionPaper.subject_id == '6'"
+                     ng-bind-html="thisCanBeusedInsideNgBindHtml"></div>
+                <div class="questiontext" ng-if="slquizQuestionPaper.subject_id != '6'">
+                    {{question}}
+                    <div ng-show="showaudiotag">
+                        <audio controls>
+                            <source ng-src="{{questionaudiotext}}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="questiontext" style="margin-top: 5px;">
+                    <video style="width:100%" controls>
+                        <source ng-src="{{questionvideo}}" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xs-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="optiontext pl-10">
+                    <label class="radiocursor">1. <input type="radio" name="optradio" ng-model="slquizopt" class="radiocursor" value="1" ng-change="showSlquizNextButton()"> {{option1}}</input></label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="optiontext pl-10">
+                    <label class="radiocursor">2. <input type="radio" name="optradio" ng-model="slquizopt" class="radiocursor" value="2" ng-change="showSlquizNextButton()"> {{option2}}</input></label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="optiontext pl-10">
+                    <label class="radiocursor">3. <input type="radio" name="optradio" ng-model="slquizopt" class="radiocursor" value="3" ng-change="showSlquizNextButton()"> {{option3}}</input></label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="optiontext pl-10">
+                    <label class="radiocursor">4. <input type="radio" name="optradio" ng-model="slquizopt" class="radiocursor" value="4" ng-change="showSlquizNextButton()"> {{option4}}</input></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-warning" style="display:none;font-size: 120%;" ng-click="skipQuestionNumber()" id="skipbutton" ng-disabled="skipbtndisable">પછી કરીશ</button>&nbsp;&nbsp;
+                &nbsp;<button type="button" class="btn btn-info" id="slquiznextbutton" style="display:none;font-size:120%;" ng-click="loadQuestionAndOptions()">આગળ વધો</button>
+            </div>
+        </div>
+    </div>
+</div>

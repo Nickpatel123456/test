@@ -1,0 +1,21 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row" style="margin-right:auto;">
+        <div class="col-xs-2 col-md-2">
+            <select class="form-control" ng-model="usermanualdata"
+                    ng-options="manual.pdfname as manual.name for manual in usermanuladetails" required>
+                <option value="" selected disabled>પસંદ કરો</option>
+            </select>
+
+            <button type="submit" class="btn btn-info btn-block" ng-if="usermanualdata!= undefined"
+                    ng-click="showusermanual()" style="margin-top:10px">Submit
+            </button>
+        </div>
+
+        <div class="col-xs-10 col-md-10" ng-if="showPdfBox">
+            <iframe ng-src="{{showPdfUrl}}" style="height:89vh;width:100%">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+        </div>
+    </div>
+</div>

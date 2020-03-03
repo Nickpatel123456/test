@@ -1,0 +1,161 @@
+<nav-bar></nav-bar>
+<div class="container-fluid" ng-if="showdashboard">
+    <div class="row">
+        <div class="col-md-3 col-sm-3">
+            <button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+                <span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+
+        <div class="col-md-6 col-sm-9">
+            <center><h4>Student sLearn Dashboard ({{schoolname}})</h4></center>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" ng-if="showdashboard">
+    <div class="row equal">
+        <!--begin panel 1 -->
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Subject Wise Usage</h1>
+                </div>
+                <!-- end panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ui-jq="dataTable"
+                               ui-options="tableOption1">
+                            <thead>
+                            <tr>
+                                <th rowspan="2" style="vertical-align : middle;text-align:center;">Subject Name</th>
+                                <th colspan="2">Current Week</th>
+                                <th colspan="2">Current Month</th>
+                                <th colspan="2">Current Year</th>
+                            </tr>
+                            <tr>
+                                <th>Exp.</th>
+                                <th>Act.</th>
+                                <th>Exp.</th>
+                                <th>Act.</th>
+                                <th>Exp.</th>
+                                <th>Act.
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="subdata in subjectExpActUsage">
+                                <td>{{subdata.subname}}</td>
+                                <td ng-repeat="data in subdata.data track by $index">{{data | formatTimer}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end panel-body -->
+            </div>
+            <!-- end panel-primary -->
+        </div>
+        <!--end col-md-6 -->
+        <!-- begin panel 2 -->
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">sLearn Floor Student Data</h1>
+                </div>
+                <!-- end panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered datatable nowrap"
+                               ui-jq="dataTable"
+                               ui-options="tableOption1">
+                            <thead>
+                            <tr>
+                                <th>Subject Name</th>
+                                <th>Total Student</th>
+                                <th ng-repeat="floor in flooridlist">{{floor}}</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="(key,value) in subjectfloorStundetdetails">
+                                <td style="cursor:pointer" ng-click="getsubjectfloorwisedetails(key,value)"><a
+                                        ng-href="">{{value.subname}}</a></td>
+                                <td ng-repeat="totalstudent in value.totalstudent track by $index">{{totalstudent}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end panel-body -->
+            </div>
+            <!-- end panel-primary -->
+        </div>
+        <!-- end col-md-6 -->
+    </div>
+    <!-- end row -->
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="floordetailsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Subject Floor Wise Student Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-group" id="accordion">
+                    <h4 class="text-center">Subject :- {{selectsubjectname}}</h4>
+
+                    <center><img ng-src="{{imgurl}}" class="img-responsive" ng-if="showloading1" width="60%"></center>
+                    <h4 ng-if="errorMsg1">
+                        <center>{{errorMsg}}</center>
+                    </h4>
+
+                    <div class="panel panel-default" ng-repeat="floor in floorwisestudentdata" ng-if="showtable1">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index+1}}"
+                                   id="modalContent{{$index+1}}">Click Here To Get Details Of Floor {{floor.floorid}}
+                                    Student</a>
+                            </h4>
+                        </div>
+                        <div id="collapse{{$index+1}}" class="panel-collapse collapse">
+                            <div class="panel-body table-responsive">
+                                <table class="table table-striped table-bordered datatable nowrap"
+                                       ui-jq="dataTable"
+                                       ui-options="tableOption1">
+                                    <thead>
+                                    <tr>
+                                        <th>Student Name</th>
+                                        <th>Standard</th>
+                                        <th>Division</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="student in floor.studentdata">
+                                        <td>{{student.data.user_detail.first_name + " " +
+                                            student.data.user_detail.last_name }}
+                                        </td>
+                                        <td>{{student.data.student_detail.standard_id}}</td>
+                                        <td>{{student.divisonname.name.guj}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

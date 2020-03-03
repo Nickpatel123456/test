@@ -1,0 +1,43 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success" style="margin-bottom:4px" ng-click="goBack()">
+                <span class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+
+        <div class="col-md-6">
+            <center><h4>Teacher sLate Usage Reports ({{schoolname}})</h4></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Total School Usage" ng-click="today1()">
+                    <teacherslate1-report></teacherslate1-report>
+                </uib-tab>
+                <uib-tab index="1" heading="Total Subject Usage" ng-click="today2()">
+                    <teacherslate2-report></teacherslate2-report>
+                </uib-tab>
+                <uib-tab index="2" heading="Total Standard Usage" ng-click="today3()">
+                    <teacherslate3-report></teacherslate3-report>
+                </uib-tab>
+                <uib-tab index="3" heading="Standard v/s Subject Usage" ng-click="today4()">
+                    <teacherslate4-report></teacherslate4-report>
+                </uib-tab>
+                <uib-tab index="4" heading="Teacher Wise Usage" ng-click="today5()">
+                    <teacherslate5-report></teacherslate5-report>
+                </uib-tab>
+                <uib-tab index="5" heading="All Standard Subject Usage" ng-click="today6()">
+                    <teacherslate6-report></teacherslate6-report>
+                </uib-tab>
+                <!-- <uib-tab index="6" heading="Weekly Subject Usage" ng-click="today7()"><teacherslate7-report></teacherslate7-report></uib-tab> -->
+                <uib-tab index="6" heading="Total Chapter Usage" ng-click="today8()">
+                    <teacherslate8-report></teacherslate8-report>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

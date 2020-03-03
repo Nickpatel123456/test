@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title"></h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <h2> Dear, {{usersname}}</h2>
+    <h4 style="color:blue">તમારું સેશન સમાપ્ત થયું છે. જો તમે જ વપરાશકર્તા તરીકે કાર્ય ચાલુ રાખવા માંગતા હોય, તો ફરીથી
+        લૉગ ઈન કરો પર ક્લિક કરો, અને જો તમે અન્ય વપરાશકર્તા સાથે ફરીથી લૉગ ઈન કરવા ઈચ્છો છો તો લૉગ આઉટ પર ક્લિક કરો.
+    </h4>
+
+    <h3 style="text-align: center">Please Wait <span id="timerCountDown" style="color:red">{{sessionStorage.getItem("showpopuptime")}}</span>
+        after click button.</h3>
+
+    <audio id="warning">
+        <source src="/audio/Bleep.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="modal-footer" ng-if="showpopup">
+    <p ng-show="checked == 1">ફરીથી લૉગિન કરવાનો પ્રયાસ કરો !! <img ng-src="{{baseLinkForScope+'images/loading.gif'}}"/>
+    </p>
+    <button type="button" class="btn btn-success btn-lg" ng-disabled="checked == 1" ng-click="reloginAgain()">ફરીથી લૉગ
+        ઈન કરો
+    </button>
+    <button type="button" class="btn btn-danger btn-lg" ng-disabled="checked == 1"
+            ng-click="logOutAndLoginWithNewUser()">લૉગ આઉટ કરો
+    </button>
+</div>

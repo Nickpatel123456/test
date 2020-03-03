@@ -1,0 +1,166 @@
+<style>
+    .div1 {
+        background-color: green;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+		padding-bottom: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    }
+
+    .div2 {
+        background-color: yellow;
+        font-size: 18px;
+        padding: 10px;
+		padding-bottom: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    }
+
+    .div3 {
+        background-color: silver;
+        font-size: 18px;
+        padding: 10px;
+		padding-bottom: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    }
+</style>
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Selection Box</h1></div>
+                <div class="panel-body">
+                    <!-- <label>From Date</label> -->
+                    <!-- <p class="input-group"> -->
+                    <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate3" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" /> -->
+                    <!-- <span class="input-group-btn"> -->
+                    <!-- <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button> -->
+                    <!-- </span> -->
+                    <!-- </p> -->
+
+                    <!-- <label>To Date</label> -->
+                    <!-- <p class="input-group"> -->
+                    <!-- <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate3" is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats"/> -->
+                    <!-- <span class="input-group-btn"> -->
+                    <!-- <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button> -->
+                    <!-- </span> -->
+                    <!-- </p> -->
+
+                    <label style="margin-top:6px">Select Subject</label>
+                    <select class="form-control" ng-model="sub_analysis3"
+                            ng-options="s.sub_id as s.sub_name.gj for s in subjectdata3"
+                            ng-change="getStandardData3(); std_analysis3 = undefined; div_analysis3 = undefined"></select>
+
+                    <label style="margin-top:6px">Standard</label>
+                    <select class="form-control" ng-model="std_analysis3" ng-options="std for std in standardanalysis3"
+                            ng-change="getDivisionData3(); div_analysis3 = undefined"></select>
+
+                    <label style="margin-top:6px">Division</label>
+                    <select class="form-control" ng-model="div_analysis3"
+                            ng-options="y.divid as y.divname.guj for y in divanalysis3"></select>
+
+                    <button type="button" class="btn btn-primary" style="margin-top:6px"
+                            ng-click="loadAcademic3Report()"
+                            ng-if="sub_analysis3 != undefined && std_analysis3 != undefined && div_analysis3 != undefined">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" ng-if="showAcademic3Report">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h1 class="panel-title">Student Wise Details</h1></div>
+                <div class="panel-body table-responsive">
+                    <h4 class="text-center" ng-if="errorMsg3">
+                        <center>{{errorMsg}}</center>
+                    </h4>
+                    <div class="table-responsive">
+                        <table  class="table table-striped table-bordered datatable nowrap"
+                                ui-jq="dataTable"
+                                ui-options="tableOption3" ng-if="showtable3">
+                            <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Student Name</th>
+                                <th>Current Floor No.</th>
+                                <th>Current Conceptroom Name</th>
+                                <th>Concept Status In Percentage(%)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="data in dataarray1 track by $index">
+                                <td>{{$index + 1}}</td>
+                                <td>{{data.username}}</td>
+                                <td>{{data.floorid1}}</td>
+                                <td ng-repeat="conceptroom in data.conceptroomname">{{conceptroom}}</td>
+                                <td><h5 ng-repeat="concept in data.conceptdata">{{concept.conceptname + ":- " +
+                                    concept.percantage}}% <a ng-href=""
+                                                             ng-click="loadStudentActivityDetails(data.floorid1,data.conceproomtid,concept.concept_id,concept.activityid)"
+                                                             style="cursor:pointer">Show Details</a></h5></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="activityModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Activity Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin:auto;display:flex;">
+                    <div class="col-md-4 col-xs-4 text-center div1">Complete
+                    </div>
+                    <div class="col-md-4 col-xs-4 text-center div2">Current Play Activity
+                    </div>
+                    <div class="col-md-4 col-xs-4 text-center div3">Not Complete
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12" ng-repeat="(key,value) in activityList">
+                        <div class="text-center div1"
+                             style="margin-bottom:5px;"
+                             ng-if="key < studentPassActivityId">{{value.activity_name}}
+                        </div>
+                        <div class="text-center div2"
+                             style="margin-bottom:5px;"
+                             ng-if="key == studentPassActivityId">{{value.activity_name}}
+                        </div>
+                        <div class="text-center div3"
+                             style="margin-bottom:5px;"
+                             ng-if="key > studentPassActivityId">{{value.activity_name}}
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-md-4 col-xs-4"> -->
+                    <!-- <ul ng-repeat="(key,value) in activityList" style="list-style-type: none;"> -->
+                    <!-- <li align="center" style="background-color:green;color:white;font-size:18px" ng-if="key < studentPassActivityId">Complete</li> -->
+                    <!-- <li align="center" style="background-color:yellow;font-size:18px" ng-if="key == studentPassActivityId">Current Play Activity</li> -->
+                    <!-- <li align="center" style="background-color:silver;font-size:18px" ng-if="key > studentPassActivityId">Not Complete</li> -->
+                    <!-- </ul> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

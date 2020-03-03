@@ -1,0 +1,45 @@
+	<div id="GuestBlock"> 
+		<div class="row">
+			<div class="col-xs-6 col-md-4">
+				<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.GuestFirstName" placeholder="નામ" required>
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.GuestMiddleName" placeholder="પિતાનું નામ">
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" class="form-control" ng-minlength="3" ng-model="AddUser.GuestLastName" placeholder="અટક" required>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-xs-6 col-md-4">
+			<br/>
+				<input type="text" class="form-control" ng-model="AddUser.GuestUserName" placeholder="યુઝરનેમ" required>
+			</div>
+			<div class="col-xs-6 col-md-4">
+			<br/>
+				<input type="text" class="form-control" ng-minlength="6" ng-model="AddUser.GuestPassword" placeholder="પાસવર્ડ" required>
+			</div>
+			<div class="col-xs-6 col-md-4">
+			<label for="date_of_birth" class="control-label">જન્મ તારીખ:</label>
+				<input type="date" min="1900-01-01" max="2100-12-31" ng-model="AddUser.GuestDateOfBirth" class="form-control" id="date_of_birth" required/>
+			</div>
+		</div>
+		
+		<div class="row">
+			<br/>
+			<div class="col-xs-6 col-md-4">
+			<br/>
+				<input type="email" class="form-control" ng-model="AddUser.GuestEmail" placeholder="ઇમેઇલ" required>
+			</div>
+			<div class="col-xs-6 col-md-4">
+			<br/>
+				 <input type="number" class="form-control" ng-minlength="10" ng-maxlength="10" placeholder="ફોન નંબર" ng-model="AddUser.GuestPhoneNumber" required>
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<label for="selectgender">જાતિ</label>
+				<select class="form-control" id="selectgender" ng-model="AddUser.GuestGender" ng-options="x.text for x in gender track by x.value" ng-init="gender=[{'value':'Male','text':'પુરૂષ'},{'value':'Female','text':'સ્ત્રી'}]" required>
+				</select>
+			</div>
+		</div>
+	</div>

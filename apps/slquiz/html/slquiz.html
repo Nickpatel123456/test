@@ -1,0 +1,30 @@
+<nav-bar></nav-bar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" ng-if="adminBlock">
+            <uib-tabset>
+                <uib-tab index="0" heading="Start Exam sLquiz">
+                    <start-slquiz></start-slquiz>
+                </uib-tab>
+                <uib-tab index="1" heading="Live Exam Monitoring">
+                    <monitoring-slquiz></monitoring-slquiz>
+                </uib-tab>
+                <uib-tab index="3" heading="Admin Panel" ng-click="gotoAdmin()"></uib-tab>
+            </uib-tabset>
+        </div>
+
+        <div class="col-md-12" ng-if="studentBlock" style="justify-content:center;">
+            <h3 class="text-center" id="info" style="display: none;">એસએલક્વિઝ શરૂ કરો</h3>
+            <take-slquiz></take-slquiz>
+        </div>
+
+        <div class="col-md-12" id="notStrtaSlquizServer" style="display:none">
+            <div class="well well-sm text-center">
+                sLQuiz Folder Not Found Inside sledstudio_remote_ui
+                <center>
+                    <button type="button" class="btn btn-warning" ng-click="back()">Go Back</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>

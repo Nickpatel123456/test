@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "sLGujaratiFont";
+    src: url('../libs/font/Shruti.ttf') format('truetype');
+}
+
+body {
+    font-family: "sLGujaratiFont", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #d5d8dc;
+}
+
+.unit_content {
+    margin-top: 25px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.color {
+    background-color: red;
+}
+
+table tr td {
+    cursor: pointer;
+}
+
+.mt {
+    margin-top: 10px;
+    margin-bottom: -10px;
+}

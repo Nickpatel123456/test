@@ -1,0 +1,124 @@
+<nav-bar></nav-bar>
+<style>
+    /* Style the list */
+    ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background: none;
+        display: flex;
+    }
+
+    /* Display list items side by side */
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 15px;
+    }
+
+    /* Add a slash symbol (/) before/behind each list item */
+    ul.breadcrumb li + li:before {
+        padding: 8px;
+        color: white;
+        content: "/\00a0";
+    }
+
+    /* Add a color to all links inside the list */
+    ul.breadcrumb li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Add a color on mouse-over */
+    ul.breadcrumb li a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .row.display-flex {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row.display-flex > .columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .panel {
+        height: 100%;
+        background-color: whitesmoke;
+    }
+
+    img {
+        float: left;
+        margin-right: 20px;
+        border: 1px solid black;
+        padding: 2px;
+    }
+
+    .complete {
+        padding: 5px;
+        padding-bottom: 2px;
+        background: lightgreen;
+        display: inline;
+        border-radius: 5px;
+        margin-left: -10px;
+    }
+
+    .text-height {
+        line-height: 1.4;
+        margin-top: -17px;
+        margin-left: -10px;
+    }
+
+    .mtb {
+        margin-top: -25px;
+        margin-bottom: 10px;
+    }
+
+    .backGrd {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+        margin-top: -9px;
+    }
+
+    .span {
+        display: table-cell;
+    }
+
+    h4 {
+        margin-bottom: 5px;
+    }
+</style>
+<div class="container-fluid backGrd">
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-4 pull-left">
+            <button class="btn btn-danger pull-left" ng-click="goBacksLearnConceptroom()"><span
+                    class="glyphicon glyphicon-arrow-left"></span>{{backBtnName}}
+            </button>
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-8 rowCenter">
+            <ul class="breadcrumb">
+                <li><a>{{slearnsubjectname}}</a></li>
+                <li><a>{{selectedfloor}}</a></li>
+                <li><a>{{conceptroomname}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row display-flex" style="margin-top:8px;">
+        <div class="col-xs-6 col-md-4 columns mtb" ng-repeat="(key,value) in list_of_concepts"
+             ng-click="goToConcept(value.concept_id, $index)">
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding: 6px;">
+                    <span class="span">
+                        <img style="max-width: none;" class="img-responsive" ng-src="{{conceptimage}}">
+                    </span>
+                    <span class="span" style="padding-top: 20px;">
+                        <h4 class="text-height">{{value.concept_name}}</h4>
+                        <p class="complete">{{per_complete + concept_completion_percentage1[$index]}}%</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

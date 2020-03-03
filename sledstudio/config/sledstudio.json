@@ -1,0 +1,67 @@
+{
+
+  "suite_detail":{
+    "name":{"en":"slEdStudio"},
+    "version":"9.2"
+  },
+
+  "# comment product_mode":"product_mode = SCHOOL (i.e. for the UI to be deployed at schools ) , other mode is 'CLOUD_REPORTING' this we will host at cloud server",
+  "product_mode":"CLOUD_REPORTING",
+
+  "# comment product_index":"The product Id are hard coded, do not edit this JSON without knowing backend code & impact analysis",
+  "product_index_comment":{
+  },
+
+  "product_index":{
+    "1":{"name":{"guj":"એસલર્ન ","en":"sLearn","default":"sLearn"},"version":"9.2"},
+    "2":{"name":{"guj":"સ્લેટ ","en":"sLate","default":"sLate"},"version":"9.2"},
+	"3":{"name":{"guj":"એસએલક્વિઝ ","en":"sLQuiz","default":"sLQuiz"},"version":"9.2"},
+    "4":{"name":{"guj":"અહેવાલ ","en":"Reports","default":"Reports"},"version":"9.2"},
+	"5":{"name":{"guj":"યુઝર મેન્યૂઅલ ","en":"User Manual","default":"User Manual"},"version":"9.2"},
+    "6":{"name":{"guj":"રિવ્યુ એસલર્ન ","en":"Review sLearn","default":"Review sLearn"},"version":"9.2"},
+    "8":{"name":{"guj":"એડમિનિસ્ટ્રેશન ","en":"Administration","default":"Administration"},"version":"9.2"}
+  },
+  "# comment not-in-use_product_index":"Rather than deleting key-val from product index , move them to not-in-use_product_index",
+  "not-in-use_product_index":{
+    "3":{"name":{"guj":"એસએલક્વિઝ ","en":"sLQuiz","default":"sLQuiz"},"version":"9.2"},
+    "7":{"name":{"guj":"લાઇવ ક્વિઝ મોનીટરીંગ","en":"Live Monitoring","default":"Review sLearn"},"version":"9.2"},
+    "9":{"name":{"guj":"એસએલક્વિઝ એડમિનિસ્ટ્રેશન ","en":"sLquiz Administration","default":"Administration"},"version":"9.2"},
+    "10":{"name":{"en":"sLearn and sLate cloud report"},"version":"9.2"}
+  },
+
+  "# comment role_catelogue":"They key names in the role catelogue are hard coded and are case sensetive, do not edit this JSON without knowing backend code",
+  "role_catelogue":{
+    "dummy_student":{"guj":"ડમી સ્ટુડન્ટ ","en":"Dummy Student","default":"Dummy Student"},
+    "student":{"guj":"સ્ટુડન્ટ ","en":"Student","default":"Student"},
+    "teacher":{"guj":"ટીચર ","en":"Teacher","default":"Teacher"},
+    "headmaster":{"guj":"હેડમાસ્તર ","en":"Headmaster","default":"Headmaster"},
+    "reviewer":{"guj":"રીવ્યુવર ","en":"Reviewer","default":"Reviewer"},
+    "admin":{"guj":"એડમિન ","en":"Admin","default":"Admin"}
+  },
+
+  "academic_year":{
+    "1":{"name":"2016-17","start_timestamp":1467311400,"end_timestamp":1498847400},
+    "2":{"name":"2017-18","start_timestamp":1467311400,"end_timestamp":1530383400}
+  },
+
+  "# comment product_acces_control": "This is meant for UI, in backend the control is at API level",
+  "product_acces_control":{
+    "dummy_student":[1,2],
+    "student":[1,2,3],
+    "teacher":[2,4,5,6],
+    "headmaster":[4,7],
+    "reviewer":[2,4,6,7],
+    "admin":[3,4,8,9]
+  },
+
+  "product_acces_control_basis_product_mode":{
+    "SCHOOL":{
+        "SERVER":["4"],
+        "SMART_CLASS":["2","6","4","8"]
+    },
+    "CLOUD_REPORTING":{
+        "default":["4"]
+    }
+  }
+
+}

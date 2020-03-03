@@ -1,0 +1,67 @@
+<br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel-group">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Selection Box</div>
+				<div class="panel-body">	
+					<div class="row">
+						<div class="col-sm-3">
+							<label style="margin-top:6px">Subject</label>
+							<select class="form-control" ng-model="subject_data4" ng-options="sub.sub_name.gj for sub in subject_details_data4" ng-change="getstandard_data4(); standard_data4 = division_data4 = undefined"></select>
+						</div>
+						
+						<div class="col-sm-3">
+							<label style="margin-top:6px">Standard</label>
+							<select class="form-control" ng-model="standard_data4" ng-options="std for std in standard_details_data4" ng-change="getdivision_data4(); division_data4 = undefined"></select>
+						</div>
+						
+						<div class="col-sm-3">
+							<label style="margin-top:6px">Division</label>
+							<select class="form-control" ng-model="division_data4" ng-options="div.div_id as div.div_name.guj for div in division_details_data4"></select>
+						</div>
+						
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-primary" style="margin-top:30px" ng-click="studentwiseSkillreport()" ng-if="subject_data4 != undefined && standard_data4 != undefined && division_data4 != undefined">Show Skill Report</button>
+						</div>
+					</div>
+					<br>
+					<div class="row" >
+						<div class="col-md-12 table-responsive">
+							<center ng-if="erorrmsg"><h3 style="color:red">No data available</h3></center>
+							<table class="table table-bordered" ng-if="showskillreporttable">
+								<thead>
+									<tr class="danger">
+										<td align="center">Sr. No.</td>
+										<td align="center">Student Name</td>
+										<td align="center" ng-repeat="skill_aggre in aggregateSkillReport track by $index">{{skill_aggre.skill_name.guj}} (%)</td>
+									</tr>
+									
+									<tr class="warning">
+										<td align="center">Classroom Skill Aggregate(%)</td>
+										<td align="center">- </td>
+										<td ng-repeat="skill_aggre in aggregateSkillReport track by $index">
+										<span>Percentage : {{skill_aggre.aggregate}}</span><br/>
+										<span>Attempted Act : {{skill_aggre.completed_act}}</span><br/>
+										<span>Available Act : {{skill_aggre.total_act}}</span>
+										</td>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<tr ng-repeat="(key,value) in studentskillReport" class="success">
+										<td align="center">{{value.srno}}</td>
+										<td align="center">{{value.stundet_data.user_detail.first_name + " " + value.stundet_data.user_detail.middle_name}}</td>
+										<td align="center" ng-repeat="skill_percentage in value.skill_data track by $index">{{skill_percentage | number:2}}</td>
+										<!-- <td align="center" ng-repeat="skill_percentage in value.skill_data track by $index">-</td> -->
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

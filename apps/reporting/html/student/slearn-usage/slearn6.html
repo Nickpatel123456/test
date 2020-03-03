@@ -1,0 +1,51 @@
+<br>
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h1 class="panel-title">All Standard Subject Usage</h1></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>From Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fromDate6"
+                               is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open1()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+
+                    <label>To Date</label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="toDate6"
+                               is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close"
+                               alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open2()"><i
+                                    class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+                    </p>
+                    <button type="button" class="btn btn-primary" ng-click="loadslearn6report()"
+                            ng-if="fromDate6 != undefined && toDate6 != undefined">Submit
+                    </button>
+                </div>
+
+                <div class="col-md-9" ng-if="showgraph6">
+                    <div class="row">
+                        <div class="col-md-6" ng-repeat="(key, value) in prouctStdWiseSubjectData"
+                             style="margin-top: 10px">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading text-center"><h1 class="panel-title">Standard {{key}}</h1></div>
+                                <div class="panel-body">
+                                    <canvas class="chart chart-bar" chart-data="value.data"
+                                            chart-labels="value.labels" chart-options="options6"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

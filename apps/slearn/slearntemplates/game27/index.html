@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Game 27</title>
+
+    <!-- Bootstrap -->
+    <link href="/apps/slearn/slearntemplates/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/apps/slearn/slearntemplates/game27/game.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body onselectstart="return false;">
+<div class="container-fluid unit_content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="questiontext" class="questiontext"></div>
+        </div>
+    </div>
+
+    <div class="row" id="loadoptionsdetails"></div>
+
+    <div class="row">
+        <div class="col-sm-7 col-sm-offset-2">
+            <button type="button" class="btn btn-success pull-left" id="previous"
+                    onClick="previousQuestionLoad()"
+                    style="font-size:15px;margin-bottom:10px;margin-top:10px;display:none">Previous Question
+            </button>
+        </div>
+        <br/>
+    </div>
+
+    <audio controls id="myAudio" style="display:none"></audio>
+</div>
+
+<!-- Launch Modal -->
+<div class="modal fade" id="launchmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-size:20px;">શરૂઆતની સૂચના</h4>
+            </div>
+            <div class="modal-body">
+                <p id="unittitle" style="font-size:18px;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onClick="startGame()" style="font-size:18px;">રમત શરુ
+                    કરો
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of launch modal -->
+
+<!-- Success Modal -->
+<div class="modal fade" id="successmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-size:18px;">બહુ સરસ </h4>
+            </div>
+            <div class="modal-body text-center" id="loadingNextActivity">
+                <h3 style="font-size:18px;"> તમે આ પ્રવૃત્તિ પૂરી કરી છે. તમે આગળના સ્તર પર જઈ શકો છો. </h3>
+                </br>
+                <div id="result" style="font-size:18px;"></div>
+                </br>
+                <button type="button" class="btn btn-primary" onClick="proceedToNextLevel()" style="font-size:18px;">
+                    આગળનું સ્તર
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of success modal -->
+
+<!-- Failure Modal -->
+<div class="modal fade" id="failuremodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-size:18px;"> રમત ફરીથી રમો. </h4>
+            </div>
+            <div class="modal-body text-center">
+                <h3 style="font-size:18px;color:red"> તમારા કેટલાક પ્રશ્નોના જવાબ સાચા નથી, તેથી વધુ શીખવા માટે આ રમત
+                    ફરીથી રમો. </h3>
+                <br/>
+                <div id="result1" style="font-size:18px;"></div>
+                <br/>
+                <button type="button" class="btn btn-primary" onClick="restartGame()" style="font-size:18px;">રમત ફરીથી
+                    શરુ કરો.
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Failure Modal -->
+
+<!-- Answer Modal -->
+<div class="modal fade" id="asnwermodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <div id="answermessage"></div>
+                        <button type="button" class="btn btn-primary" onClick="askNextQuestion()"
+                                style="font-size:18px;">આગળ વધો
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Answer Modal -->
+
+<!-- Student Modal -->
+<div class="modal fade" id="studentModel" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-size:18px;"></h4>
+            </div>
+            <div class="modal-body">
+                <div id="instruction" style="font-size:18px;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onClick="OpenLoginModel()" id="pass"
+                        style="display:none;font-size:18px;">પાસવર્ડ દાખલ કરો.
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Student Modal -->
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header header">
+                <h4 id="title" style="font-size:18px;"></h4>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+                <form role="form">
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-user"></span><label id="err_user"></label>
+                        <input type="text" class="form-control" id="user"></br>
+                        <span class="glyphicon glyphicon-eye-open"></span><label id="err_pass"></label>
+                        <input type="password" class="form-control" id="pass1">
+                    </div>
+                    <button type="button" class="btn btn-success btn-block" onclick="return myConsultPassword();"
+                            style="font-size:18px;"><span class="glyphicon glyphicon-off"></span> સબમિટ
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<!-- End of Login Modal -->
+
+<!-- Remedial Modal -->
+<div class="modal fade" id="courouselmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">પુનરાવર્તન કરો
+                    <button type="button" id="remedial2button" style="margin-left:5px"
+                            class="btn btn-success pull-right" onClick="loadNextRemedial()">વધુ શીખો
+                    </button>
+                    <button type="button" id="playagainbtn" class="btn btn-warining pull-right" style="margin-left:5px"
+                            onClick="playAgain()" data-dismiss="modal">ફરીથી રમવું
+                    </button>
+                </h4>
+            </div>
+            <div class="modal-body" id="corouselbody" style="height:75vh"></div>
+        </div>
+    </div>
+</div>
+<!-- End of Remedial Modal -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/apps/slearn/slearntemplates/libs/jquery-2.2.4.min.js"></script>
+<script src="/apps/slearn/slearntemplates/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="/apps/slearn/slearntemplates/game27/game.js"></script>
+<script src="/apps/slearn/slearntemplates/libs/logic-common-anchor.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+</html>
